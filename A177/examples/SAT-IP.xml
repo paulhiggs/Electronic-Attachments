@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ServiceList version="1" xmlns="urn:dvb:metadata:servicediscovery:2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicediscovery:2019 ../dvbi_v1.0.xsd" xmlns:tva="urn:tva:metadata:2019">
+<ServiceList version="1" xmlns="urn:dvb:metadata:servicediscovery:2020" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicediscovery:2020 ../dvbi_v2.0.xsd" xmlns:tva="urn:tva:metadata:2019">
 	<Name>Germany FTA Example</Name>
 	<ProviderName>SES</ProviderName>
 	<RegionList version="1">
@@ -71,7 +71,7 @@
 		</LCNTable>
 	</LCNTableList>
 	<Service version="1">
-		<UniqueIdentifier>"tag:daserste.de,2019:Das Erste"</UniqueIdentifier>
+		<UniqueIdentifier>tag:daserste.de,2019:Das Erste</UniqueIdentifier>
 		<ServiceInstance priority="1">
 			<DisplayName>Das Erste HD</DisplayName>
 			<ContentAttributes>
@@ -86,7 +86,6 @@
 					</tva:Coding>
 				</VideoAttributes>
 			</ContentAttributes>
-			<SourceType>urn:dvb:metadata:source:dvb-s</SourceType>
 			<DVBSDeliveryParameters>
 				<DVBTriplet origNetId="1" tsId="1019" serviceId="10301"/>
 				<OrbitalPosition>19.2</OrbitalPosition>
@@ -116,7 +115,6 @@
 					</tva:Coding>
 				</VideoAttributes>
 			</ContentAttributes>
-			<SourceType>urn:dvb:metadata:source:dvb-s</SourceType>
 			<DVBSDeliveryParameters>
 				<DVBTriplet origNetId="1" tsId="1101" serviceId="28106"/>
 				<OrbitalPosition>19.2</OrbitalPosition>
@@ -129,7 +127,6 @@
 		</ServiceInstance>
 		<ServiceInstance priority="3">
 			<DisplayName>Das Erste</DisplayName>
-			<SourceType>urn:dvb:metadata:source:dvb-dash</SourceType>
 			<DASHDeliveryParameters>
 				<UriBasedLocation contentType="application/dash+xml">
 					<URI>https://live.daserste.de/0001 Das%20Erste.mpd</URI>

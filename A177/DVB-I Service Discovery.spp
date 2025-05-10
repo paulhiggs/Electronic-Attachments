@@ -7,19 +7,21 @@
 			<File FilePath="examples\Box Set Lists Response.xml" HomeFolder="Yes"/>
 			<File FilePath="examples\Content Guide Source.xml" HomeFolder="Yes"/>
 			<File FilePath="examples\Detailed Program Information Response.xml" HomeFolder="Yes"/>
-			<File FilePath="examples\Italy-Regional-Inserts.xml" HomeFolder="Yes"/>
+			<File FilePath="examples\Italy Regional Inserts.xml" HomeFolder="Yes"/>
 			<File FilePath="examples\More Episodes Response.xml" HomeFolder="Yes"/>
 			<File FilePath="examples\Playlist.xml" HomeFolder="Yes"/>
 			<File FilePath="examples\Regions (Range and Postcode).xml" HomeFolder="Yes"/>
 			<File FilePath="examples\Regions (Range and Wildcard).xml" HomeFolder="Yes"/>
 			<File FilePath="examples\SAT-IP.xml" HomeFolder="Yes"/>
+			<File FilePath="examples\Schedule NowNext Response.xml" HomeFolder="Yes"/>
+			<File FilePath="examples\Schedule NowNext Window Response.xml" HomeFolder="Yes"/>
 			<File FilePath="examples\Schedule Response.xml" HomeFolder="Yes"/>
-			<File FilePath="examples\Service List Response (DE or AT and English).xml" HomeFolder="Yes"/>
-			<File FilePath="examples\Service List Response (error).xml" HomeFolder="Yes"/>
-			<File FilePath="examples\Service List Response (IT and Regulated).xml" HomeFolder="Yes"/>
+			<File FilePath="examples\Service List Registry Response (DE or AT and English).xml" HomeFolder="Yes"/>
+			<File FilePath="examples\Service List Registry Response (error).xml" HomeFolder="Yes"/>
+			<File FilePath="examples\Service List Registry Response (IT and Regulated).xml" HomeFolder="Yes"/>
 		</Folder>
 		<File FilePath="DVBContentSubjectCS-2019.xml" HomeFolder="Yes"/>
-		<File FilePath="DVBHowRelatedCS-2019.xml" HomeFolder="Yes"/>
+		<File FilePath="DVBHowRelatedCS-2020.xml" HomeFolder="Yes"/>
 		<File FilePath="DVBLinkedApplicationCS-2019.xml" HomeFolder="Yes"/>
 		<File FilePath="DVBRecordingInfoCS-2019.xml" HomeFolder="Yes"/>
 		<File FilePath="DVBServiceTypeCS-2019.xml" HomeFolder="Yes"/>
@@ -32,8 +34,8 @@
 			<File FilePath="tva_metadata_3-1.xsd" HomeFolder="Yes"/>
 			<File FilePath="tva_mpeg7.xsd" HomeFolder="Yes"/>
 		</Folder>
-		<File FilePath="dvbi_service_list_discovery_v1.0.xsd" HomeFolder="Yes"/>
-		<File FilePath="dvbi_v1.0.xsd" HomeFolder="Yes"/>
+		<File FilePath="dvbi_service_list_discovery_v1.1.xsd" HomeFolder="Yes"/>
+		<File FilePath="dvbi_v2.0.xsd" HomeFolder="Yes"/>
 	</Folder>
 	<Folder FolderName="Entities" ExtStr="ent"/>
 </Project>

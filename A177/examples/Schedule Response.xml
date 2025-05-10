@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TVAMain xmlns="urn:tva:metadata:2019" xmlns:mpeg7="urn:tva:mpeg7:2008"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xml:lang="eng" xsi:schemaLocation="urn:tva:metadata:2019 ../tva_metadata_3-1.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xml:lang="en" xsi:schemaLocation="urn:tva:metadata:2019 ../tva_metadata_3-1.xsd">
     <ProgramDescription>
-        <ProgramInformationTable xml:lang="eng">
+        <ProgramInformationTable xml:lang="en">
             <ProgramInformation programId="crid://channel7.co.uk/b01myjsy">
                 <BasicDescription>
                     <Title type="main">Bargain Hunt</Title>
@@ -10,7 +10,10 @@
                     <Synopsis length="short"> The Bargain Hunt teams head to Staffordshire's County Showground.</Synopsis>
                     <Synopsis length="medium"> The Bargain Hunt teams head to
                         Staffordshire's County Showground, where both experts face double trouble.</Synopsis>                    
-                    <Genre href="urn:fvc:metadata:cs:ContentSubjectCS:2014-07:3" type="main"/>
+                    <Genre href="urn:dvb:metadata:cs:ContentSubject:2019:3" type="main"/>
+                    <ParentalGuidance>
+                        <mpeg7:MinimumAge>15</mpeg7:MinimumAge>
+                    </ParentalGuidance>
                     <ParentalGuidance>
                         <mpeg7:ParentalRating href="urn:fvc:metadata:cs:ContentRatingCS:2014-07:fifteen"/>
                         <ExplanatoryText length="long">Contains strong language and flash
@@ -19,47 +22,50 @@
                     <RelatedMaterial>
                         <HowRelated href="urn:tva:metadata:cs:HowRelatedCS:2012:19"/>
                         <MediaLocator>
-                            <MediaUri contentType="image/png">http://img-ctv.mdata.co.uk/channel7/bargain_hunt.png</MediaUri>
+                            <MediaUri contentType="image/png">https://img-ctv.mdata.co.uk/channel7/bargain_hunt.png</MediaUri>
                         </MediaLocator>
                     </RelatedMaterial>
                 </BasicDescription>
             </ProgramInformation>
             <ProgramInformation programId="crid://channel7.co.uk/b03bhc3n">
                 <BasicDescription>
-                    <Title type="main">BBC News at One</Title>
+                    <Title type="main">News at One</Title>
                     <Synopsis length="medium"> The latest national and international
-                        news stories from the BBC News team, followed by weather </Synopsis>
-                    <Genre href="urn:fvc:metadata:cs:ContentSubjectCS:2014-07:2" type="main"/>
+                        news stories from the News team, followed by weather </Synopsis>
+                    <Genre href="urn:dvb:metadata:cs:ContentSubject:2019:2" type="main"/>
+                    <ParentalGuidance>
+                        <mpeg7:MinimumAge>255</mpeg7:MinimumAge>
+                    </ParentalGuidance>
                     <ParentalGuidance>
                         <mpeg7:ParentalRating href="urn:fvc:metadata:cs:ContentRatingCS:2014-07:no_parental_controls"/>
-                        <ExplanatoryText length="long"> Contains scenes of violence and strong language. </ExplanatoryText>
+                        <ExplanatoryText length="long"> May contain upsetting scenes. </ExplanatoryText>
                     </ParentalGuidance>
                     <RelatedMaterial>
                         <HowRelated href="urn:tva:metadata:cs:HowRelatedCS:2012:19"/>
                         <MediaLocator>
                             <MediaUri contentType="image/png">
-								http://img-ctv.mdata.co.uk/channel7/broadcast_news.png
+								https://img-ctv.mdata.co.uk/channel7/broadcast_news.png
 							</MediaUri>
                         </MediaLocator>
                     </RelatedMaterial>
                 </BasicDescription>
             </ProgramInformation>
         </ProgramInformationTable>
-        <ProgramLocationTable xml:lang="eng">
-            <Schedule serviceIDRef="3039" start="2013-09-25T11:15:00Z" end="2013-09-25T12:30:00.000Z">
+        <ProgramLocationTable xml:lang="en">
+            <Schedule serviceIDRef="tag:channel7.co.uk,2019:linear3039" start="2013-09-25T11:15:00Z" end="2013-09-25T12:30:00.000Z">
                 <ScheduleEvent>
                     <Program crid="crid://channel7.co.uk/b01myjsy"/>
                     <ProgramURL>dvb://233a..3039;b2e3</ProgramURL>
                     <InstanceDescription>
-                        <CaptionLanguage closed="true">eng</CaptionLanguage>
+                        <CaptionLanguage closed="true">en</CaptionLanguage>
                         <SignLanguage closed="false">sgn</SignLanguage>
                         <AVAttributes>
                             <AudioAttributes>
-                                <AudioLanguage purpose="urn:tva:metadata:cs:AudioPurposeCS:2007:1">eng</AudioLanguage>
+                                <AudioLanguage purpose="urn:tva:metadata:cs:AudioPurposeCS:2007:1">en</AudioLanguage>
                             </AudioAttributes>
                             <AudioAttributes>
                                 <MixType href="urn:mpeg:mpeg7:cs:AudioPresentationCS:2001:3"/>
-                                <AudioLanguage purpose="urn:tva:metadata:cs:AudioPurposeCS:2007:6">eng</AudioLanguage>
+                                <AudioLanguage purpose="urn:tva:metadata:cs:AudioPurposeCS:2007:6">en</AudioLanguage>
                             </AudioAttributes>
                             <VideoAttributes>
                                 <HorizontalSize>1920</HorizontalSize>
@@ -67,7 +73,7 @@
                                 <AspectRatio>16:9</AspectRatio>
                             </VideoAttributes>
                             <CaptioningAttributes>
-                                <Coding href="urn:tva:metadata:cs:CaptionCodingFormatCS:2010:2.1"/>
+                                <Coding href="urn:tva:metadata:cs:CaptionCodingFormatCS:2015:2.1"/>
                             </CaptioningAttributes>
                         </AVAttributes>
                         <OtherIdentifier type="eit-programme-crid">crid://channel7.co.uk/23VD4Q</OtherIdentifier>
@@ -96,14 +102,12 @@
             </Schedule>
             <OnDemandProgram>
                 <Program crid="crid://channel7.co.uk/b01myjsy"/>
-                <ProgramURL contentType="application/vnd.dvb.ait+xml"
-                    >http://channel7.co.uk/ait.aitx?pid=b01myjsy</ProgramURL>
-                <AuxiliaryURL contentType="application/vnd.dvb.ait+xml"
-                    >http://channel7.co.uk/ait.aitx?template</AuxiliaryURL>
+                <ProgramURL contentType="application/vnd.dvb.ait+xml">https://channel7.co.uk/ait.aitx?pid=b01myjsy</ProgramURL>
+                <AuxiliaryURL contentType="application/vnd.dvb.ait+xml">https://channel7.co.uk/ait.aitx?template</AuxiliaryURL>
                 <InstanceDescription>
                     <Genre href="urn:fvc:metadata:cs:MediaAvailabilityCS:2014-07:media_available" type="other"/>
                     <Genre href="urn:fvc:metadata:cs:FEPGAvailabilityCS:2014-10:fepg_unavailable" type="other"/>
-                    <CaptionLanguage closed="true">eng</CaptionLanguage>
+                    <CaptionLanguage closed="true">en</CaptionLanguage>
                     <AVAttributes>
                         <VideoAttributes>
                             <HorizontalSize>576</HorizontalSize>

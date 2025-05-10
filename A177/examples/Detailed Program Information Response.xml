@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TVAMain xmlns="urn:tva:metadata:2019"
     xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xml:lang="eng"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xml:lang="en"
     xsi:schemaLocation="urn:tva:metadata:2019 ../tva_metadata_3-1.xsd">
     <ProgramDescription>
-        <ProgramInformationTable xml:lang="eng">
+        <ProgramInformationTable xml:lang="en">
             <ProgramInformation programId="crid://channel7.co.uk/b01myjsy">
                 <BasicDescription>
                     <Title type="main">Bargain Hunt</Title>
@@ -22,7 +22,10 @@
                     <Keyword>FAMILY LIFE</Keyword>
                     <Keyword>RELATIONSHIPS</Keyword>
                     <Keyword type="other">Critic’s Choice</Keyword>
-                    <Genre href="urn:fvc:metadata:cs:ContentSubjectCS:2014-07:3" type="main"/>
+                    <Genre href="urn:dvb:metadata:cs:ContentSubject:2019:3" type="main"/>
+                    <ParentalGuidance>
+                        <mpeg7:MinimumAge>15</mpeg7:MinimumAge>
+                    </ParentalGuidance>
                     <ParentalGuidance>
                         <mpeg7:ParentalRating
                             href="urn:fvc:metadata:cs:ContentRatingCS:2014-07:fifteen"/>
@@ -30,10 +33,10 @@
                             photography</ExplanatoryText>
                     </ParentalGuidance>
                     <CreditsList>
-                        <CreditsItem role="urn:tva:metadata:cs:TVARoleCS:2010:V20">
+                        <CreditsItem role="urn:tva:metadata:cs:TVARoleCS:2011:V20">
                             <OrganizationName>ITV Studios Limited</OrganizationName>
                         </CreditsItem>
-                        <CreditsItem role="urn:tva:metadata:cs:TVARoleCS:2010:AD6">
+                        <CreditsItem role="urn:tva:metadata:cs:TVARoleCS:2011:AD6">
                             <PersonName>
                                 <mpeg7:GivenName>Jeremy</mpeg7:GivenName>
                                 <mpeg7:FamilyName>Kyle</mpeg7:FamilyName>
@@ -53,24 +56,21 @@
                     <RelatedMaterial>
                         <HowRelated href="urn:tva:metadata:cs:HowRelatedCS:2012:19"/>
                         <MediaLocator>
-                            <MediaUri contentType="image/png"
-                                >http://img-ctv.mdata.co.uk/channel7/bargain_hunt.png</MediaUri>
+                            <MediaUri contentType="image/png">https://img-ctv.mdata.co.uk/channel7/bargain_hunt.png</MediaUri>
                         </MediaLocator>
                     </RelatedMaterial>
                 </BasicDescription>
             </ProgramInformation>
         </ProgramInformationTable>
-       <ProgramLocationTable xml:lang="eng">
-            <OnDemandProgram serviceIDRef="http://channel7.co.uk/service_a_content_owning">
+       <ProgramLocationTable xml:lang="en">
+            <OnDemandProgram serviceIDRef="http://channel7.co.uk/service_a_app">
                 <Program crid="crid://channel7.co.uk/b01myjsy"/>
-                <ProgramURL contentType="application/vnd.dvb.ait+xml"
-                    >http://channel7.co.uk/ait.aitx?pid=b01myjsy</ProgramURL>
-                <AuxiliaryURL contentType="application/vnd.dvb.ait+xml"
-                    >http://channel7.co.uk/ait.aitx?template</AuxiliaryURL>
+                <ProgramURL contentType="application/vnd.dvb.ait+xml">https://channel7.co.uk/ait.aitx?pid=b01myjsy</ProgramURL>
+                <AuxiliaryURL contentType="application/vnd.dvb.ait+xml">https://channel7.co.uk/ait.aitx?template</AuxiliaryURL>
                 <InstanceDescription>
                     <Genre href="urn:fvc:metadata:cs:MediaAvailabilityCS:2014-07:media_available" type="other"/>
                     <Genre href="urn:fvc:metadata:cs:FEPGAvailabilityCS:2014-10:fepg_unavailable" type="other"/>
-                    <CaptionLanguage closed="true">eng</CaptionLanguage>
+                    <CaptionLanguage closed="true">en</CaptionLanguage>
                     <AVAttributes>
                         <VideoAttributes>
                             <HorizontalSize>576</HorizontalSize>

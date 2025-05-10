@@ -16,7 +16,7 @@
 			<Definition xml:lang="en">An associated application that controls media presentation or has no media</Definition>
 		</Term>
 	</Term>
-	<Term termID="1">
+	<Term termID="2">
 		<Name xml:lang="en">App for outside availability period</Name>
 		<Definition xml:lang="en"> An associated application to be started outside the availability period of a service instance</Definition>
 	</Term>
