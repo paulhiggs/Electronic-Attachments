@@ -23,7 +23,7 @@
 		</Folder>
 		<File FilePath="DVBColorimetryCS-2020.xml" HomeFolder="Yes"/>
 		<File FilePath="DVBContentSubjectCS-2019.xml" HomeFolder="Yes"/>
-		<File FilePath="DVBHowRelatedCS-2020.xml" HomeFolder="Yes"/>
+		<File FilePath="DVBHowRelatedCS-2021.xml" HomeFolder="Yes"/>
 		<File FilePath="DVBLinkedApplicationCS-2019.xml" HomeFolder="Yes"/>
 		<File FilePath="DVBRecordingInfoCS-2019.xml" HomeFolder="Yes"/>
 		<File FilePath="DVBServiceTypeCS-2019.xml" HomeFolder="Yes"/>
@@ -36,8 +36,8 @@
 			<File FilePath="tva_metadata_3-1.xsd" HomeFolder="Yes"/>
 			<File FilePath="tva_mpeg7.xsd" HomeFolder="Yes"/>
 		</Folder>
-		<File FilePath="dvbi_service_list_discovery_v1.2.xsd" HomeFolder="Yes"/>
-		<File FilePath="dvbi_v3.0.xsd" HomeFolder="Yes"/>
+		<File FilePath="dvbi_service_list_discovery_v1.3.xsd" HomeFolder="Yes"/>
+		<File FilePath="dvbi_v3.1.xsd" HomeFolder="Yes"/>
 	</Folder>
 	<Folder FolderName="Entities" ExtStr="ent"/>
 </Project>

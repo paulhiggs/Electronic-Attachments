@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ServiceList xmlns="urn:dvb:metadata:servicediscovery:2021" version="1" xmlns:tva="urn:tva:metadata:2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicediscovery:2021 ../dvbi_v3.0.xsd">
+<ServiceList xmlns="urn:dvb:metadata:servicediscovery:2022" version="1" xml:lang="en" xmlns:tva="urn:tva:metadata:2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicediscovery:2022 ../dvbi_v3.1.xsd">
 	<Name xml:lang="en">Content Guide Source exmaple</Name>
 	<ProviderName xml:lang="en">Content Guide Source</ProviderName>
 	<ContentGuideSourceList>
@@ -7,7 +7,7 @@
 			<Name xml:lang="en">A-Z Content Guide</Name>
 			<ProviderName xml:lang="en">A-Z Metadata</ProviderName>
 			<RelatedMaterial>
-				<HowRelated href="urn:dvb:metadata:cs:HowRelatedCS:2020:1002.1"/>
+				<HowRelated href="urn:dvb:metadata:cs:HowRelatedCS:2021:1002.1"/>
 				<MediaLocator contentLanguage="en">
 					<tva:MediaUri contentType="image/png">
 						https://cgs.az.metadata/static/logo.png
