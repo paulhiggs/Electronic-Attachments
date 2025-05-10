@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Example of response to query: https://dvbisr.private-service-list-registry.com/query?TargetCountry%20in%20(DE%2CAT)&Language=en -->
-<ServiceListEntryPoints xmlns="urn:dvb:metadata:servicelistdiscovery:2020" xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns:dvbisd="urn:dvb:metadata:servicediscovery:2020" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicelistdiscovery:2020 ../dvbi_service_list_discovery_v1.1.xsd">
+<!-- Example of response to query: https://private-slr.com/query?TargetCountry%5B%5D=DEU&TargetCountry%5B%5D=AUT&Language=en -->
+<ServiceListEntryPoints xmlns="urn:dvb:metadata:servicelistdiscovery:2021" xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns:dvbisd="urn:dvb:metadata:servicediscovery:2021" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicelistdiscovery:2021 ../dvbi_service_list_discovery_v1.2.xsd">
 	<ServiceListRegistryEntity>
 		<Name>A Private Service List Registry</Name>
 		<ElectronicAddress>
@@ -30,6 +30,9 @@
 			<ServiceListURI contentType="application/xml">
 				<dvbisd:URI>https://dvbi.TVfromTheWorld.com/engTVservices.xml</dvbisd:URI>
 			</ServiceListURI>
+			<Delivery>
+				<DASHDelivery required="true"/>
+			</Delivery>
 			<Language>en</Language>
 			<!-- Assumption: if TargetCountry is not specified, the service list is assumed to be targeted to any country -->
 		</ServiceListOffering>
@@ -39,6 +42,9 @@
 			<ServiceListURI contentType="application/xml">
 				<dvbisd:URI>https://dvbi.TVfromTheWorld.com/TVservices_Germany.xml</dvbisd:URI>
 			</ServiceListURI>
+			<Delivery>
+				<DASHDelivery required="true"/>
+			</Delivery>
 			<Language>de</Language>
 			<Language>en</Language>
 			<TargetCountry>DEU</TargetCountry>
@@ -70,6 +76,12 @@
 					https://alt.british-service-list-provider.co.uk/documentaries.xml
 				</dvbisd:URI>
 			</ServiceListURI>
+			<Delivery>
+				<DASHDelivery required="true" minimumBitRate="1572842"/>
+				<ApplicationDelivery required="true">
+					<ApplicationType contentType="application/vnd.dvb.ait+xml" xmlAitApplicationType="application/vnd.hbbtv.xhtml+xml"/>
+				</ApplicationDelivery>
+			</Delivery>
 			<Language>en</Language>
 			<TargetCountry>GBR</TargetCountry>
 			<TargetCountry>FRA</TargetCountry>

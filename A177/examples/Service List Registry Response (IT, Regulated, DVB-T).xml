@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Example of response to query: https://csr.dvbservices.com/query?TargetCountry=IT&regulatorListFlag=true -->
-<ServiceListEntryPoints xmlns="urn:dvb:metadata:servicelistdiscovery:2019" xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns:dvbisd="urn:dvb:metadata:servicediscovery:2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicelistdiscovery:2019 ../dvbi_service_list_discovery_v1.0.xsd">
+<!-- Example of response to query: https://csr.dvbservices.com/query?TargetCountry=ITA&regulatorListFlag=true&Delivery=dvb-t -->
+<ServiceListEntryPoints xmlns="urn:dvb:metadata:servicelistdiscovery:2021" xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns:dvbisd="urn:dvb:metadata:servicediscovery:2021" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicelistdiscovery:2021 ../dvbi_service_list_discovery_v1.2.xsd">
 	<ServiceListRegistryEntity regulatorFlag="true">
 		<Name>DVB Services Sàrl</Name>
 		<Address>
@@ -32,8 +32,12 @@
 		<ServiceListOffering regulatorListFlag="true">
 			<ServiceListName>Italian Trusted Services</ServiceListName>
 			<ServiceListURI contentType="application/xml">
-				<dvbisd:URI>http://dvbi.italian-authority.it/trusted-services.xml</dvbisd:URI>
+				<dvbisd:URI>https://dvbi.italian-authority.it/trusted-services-dtt.xml</dvbisd:URI>
 			</ServiceListURI>
+			<Delivery>
+				<DASHDelivery/>
+				<DVBTDelivery required="true"/>
+			</Delivery>
 			<Language>it</Language>
 			<TargetCountry>ITA</TargetCountry>
 		</ServiceListOffering>

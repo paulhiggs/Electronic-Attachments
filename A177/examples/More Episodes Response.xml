@@ -41,24 +41,15 @@
                     </RelatedMaterial>
                     <RelatedMaterial>
                         <HowRelated href="urn:fvc:metadata:cs:HowRelatedCS:2015-12:pagination:prev"/>
-                        <MediaLocator><MediaUri>
-                            https://api-ctv.mdata.co.uk/programs/more-episodes?pid=crid%3A%2F%2Fchannel7.co.uk%2Fn19alr19
-                            &amp;type=ondemand&amp;regionID%5B%5D=1234&amp;regionID%5B%5D=5678&amp;page=2
-                        </MediaUri></MediaLocator>
+                        <MediaLocator><MediaUri>https://api-ctv.mdata.co.uk/programs/more-episodes?pid=crid%3A%2F%2Fchannel7.co.uk%2Fn19alr19&amp;type=ondemand&amp;regionID%5B%5D=1234&amp;regionID%5B%5D=5678&amp;page=2</MediaUri></MediaLocator>
                     </RelatedMaterial>
                     <RelatedMaterial>
                         <HowRelated href="urn:fvc:metadata:cs:HowRelatedCS:2015-12:pagination:next"/>
-                        <MediaLocator><MediaUri>
-                            https://api-ctv.mdata.co.uk/programs/more-episodes?pid=crid%3A%2F%2Fchannel7.co.uk%2Fn19alr19
-                            &amp;type=ondemand&amp;regionID%5B%5D=1234&amp;regionID%5B%5D=5678&amp;page=4
-                        </MediaUri></MediaLocator>
+                        <MediaLocator><MediaUri>https://api-ctv.mdata.co.uk/programs/more-episodes?pid=crid%3A%2F%2Fchannel7.co.uk%2Fn19alr19&amp;type=ondemand&amp;regionID%5B%5D=1234&amp;regionID%5B%5D=5678&amp;page=4</MediaUri></MediaLocator>
                     </RelatedMaterial>
                     <RelatedMaterial>
                         <HowRelated href="urn:fvc:metadata:cs:HowRelatedCS:2015-12:pagination:last"/>
-                        <MediaLocator><MediaUri>
-                            https://api-ctv.mdata.co.uk/programs/more-episodes?pid=crid%3A%2F%2Fchannel7.co.uk%2Fn19alr19
-                            &amp;type=ondemand&amp;regionID%5B%5D=1234&amp;regionID%5B%5D=5678&amp;page=4
-                        </MediaUri></MediaLocator>
+                        <MediaLocator><MediaUri>https://api-ctv.mdata.co.uk/programs/more-episodes?pid=crid%3A%2F%2Fchannel7.co.uk%2Fn19alr19&amp;type=ondemand&amp;regionID%5B%5D=1234&amp;regionID%5B%5D=5678&amp;page=4</MediaUri></MediaLocator>
                     </RelatedMaterial>
                 </BasicDescription>
             </GroupInformation>

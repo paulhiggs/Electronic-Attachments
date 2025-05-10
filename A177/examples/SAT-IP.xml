@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ServiceList version="1" xmlns="urn:dvb:metadata:servicediscovery:2020" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicediscovery:2020 ../dvbi_v2.0.xsd" xmlns:tva="urn:tva:metadata:2019">
+<ServiceList version="1" xmlns="urn:dvb:metadata:servicediscovery:2021" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicediscovery:2021 ../dvbi_v3.0.xsd" xmlns:tva="urn:tva:metadata:2019">
 	<Name>Germany FTA Example</Name>
 	<ProviderName>SES</ProviderName>
 	<RegionList version="1">
@@ -63,15 +63,15 @@
 	<LCNTableList>
 		<LCNTable>
 			<TargetRegion>Deutschland</TargetRegion>
-			<LCN channelNumber="1" serviceRef="tag:das.erste.de,2019:Das Erste"/>
+			<LCN channelNumber="1" serviceRef="tag:daserste.de,2019:DasErste"/>
 		</LCNTable>
 		<LCNTable>
 			<TargetRegion>Saarland</TargetRegion>
-			<LCN channelNumber="1" serviceRef="tag:das.erste.de,2019:Das Erste"/>
+			<LCN channelNumber="1" serviceRef="tag:daserste.de,2019:DasErste"/>
 		</LCNTable>
 	</LCNTableList>
 	<Service version="1">
-		<UniqueIdentifier>tag:daserste.de,2019:Das Erste</UniqueIdentifier>
+		<UniqueIdentifier>tag:daserste.de,2019:DasErste</UniqueIdentifier>
 		<ServiceInstance priority="1">
 			<DisplayName>Das Erste HD</DisplayName>
 			<ContentAttributes>
@@ -81,7 +81,7 @@
 					</tva:Coding>
 				</AudioAttributes>
 				<VideoAttributes>
-					<tva:Coding href=" urn:dvb:metadata:cs:VideoCodecCS:2007:1.4.12">
+					<tva:Coding href="urn:dvb:metadata:cs:VideoCodecCS:2007:1.4.12">
 						<tva:Name>H264 High Profile @ Level 4.0</tva:Name>
 					</tva:Coding>
 				</VideoAttributes>
@@ -110,7 +110,7 @@
 					</tva:Coding>
 				</AudioAttributes>
 				<VideoAttributes>
-					<tva:Coding href="urn:mpeg:mpeg7:cs:VideoCodingFormatCS:2001:2.2.2">
+					<tva:Coding href="urn:mpeg:mpeg7:cs:VisualCodingFormatCS:2001:2.2.2">
 						<tva:Name>MPEG-2 Video Main Profile @ Main Level</tva:Name>
 					</tva:Coding>
 				</VideoAttributes>
@@ -129,7 +129,7 @@
 			<DisplayName>Das Erste</DisplayName>
 			<DASHDeliveryParameters>
 				<UriBasedLocation contentType="application/dash+xml">
-					<URI>https://live.daserste.de/0001 Das%20Erste.mpd</URI>
+					<URI>https://live.daserste.de/0001-Das%20Erste.mpd</URI>
 				</UriBasedLocation>
 			</DASHDeliveryParameters>
 		</ServiceInstance>
