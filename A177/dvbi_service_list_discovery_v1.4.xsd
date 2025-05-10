@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:dvbisld="urn:dvb:metadata:servicelistdiscovery:2022" xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns:tva="urn:tva:metadata:2019" xmlns:dvbisd="urn:dvb:metadata:servicediscovery:2022" targetNamespace="urn:dvb:metadata:servicelistdiscovery:2022" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:dvbisld="urn:dvb:metadata:servicelistdiscovery:2022b" xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns:tva="urn:tva:metadata:2019" xmlns:dvbisd="urn:dvb:metadata:servicediscovery:2022b" targetNamespace="urn:dvb:metadata:servicelistdiscovery:2022b" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<import namespace="urn:tva:metadata:2019" schemaLocation="tva_metadata_3-1.xsd"/>
 	<import namespace="urn:tva:mpeg7:2008" schemaLocation="tva_mpeg7.xsd"/>
-	<import namespace="urn:dvb:metadata:servicediscovery:2022" schemaLocation="dvbi_v3.1.xsd"/>
+	<import namespace="urn:dvb:metadata:servicediscovery:2022b" schemaLocation="dvbi_v4.0.xsd"/>
 	<import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
 	<element name="ServiceListEntryPoints" type="dvbisld:ServiceListEntryPointsType"/>
 	<complexType name="ServiceListEntryPointsType">
@@ -59,6 +59,14 @@
 			<element name="Language" type="tva:AudioLanguageType" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="Genre" type="tva:GenreType" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="TargetCountry" type="dvbisd:ISO-3166-List" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="RelatedMaterial" type="dvbisd:RelatedMaterialType" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="SRSSupport" minOccurs="0">
+				<complexType>
+					<attribute name="postcode" type="boolean" default="false"/>
+					<attribute name="regionId" type="boolean" default="false"/>
+					<attribute name="receivedMultiplex" type="boolean" default="false"/>
+				</complexType>
+			</element>
 		</sequence>
 		<attribute name="regulatorListFlag" type="boolean" default="false"/>
 		<attribute ref="xml:lang"/>
@@ -93,8 +101,9 @@
 	</complexType>
 	<complexType name="DVBTDeliveryType">
 		<complexContent>
-			<extension base="dvbisld:AbstractDeliveryType"/>
-			<!-- no additional elements or attributes -->
+			<extension base="dvbisld:AbstractDeliveryType">
+				<attribute name="originalNetworkID" type="dvbisd:NetworkIdType" use="optional"/>
+			</extension>
 		</complexContent>
 	</complexType>
 	<complexType name="DVBCDeliveryType">
@@ -110,6 +119,7 @@
 				<sequence>
 					<element name="OrbitalPosition" type="dvbisd:LongitudeType" maxOccurs="unbounded"/>
 				</sequence>
+				<attribute name="originalNetworkID" type="dvbisd:NetworkIdType" use="optional"/>
 			</extension>
 		</complexContent>
 	</complexType>

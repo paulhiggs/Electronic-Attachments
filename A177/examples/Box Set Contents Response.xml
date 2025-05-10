@@ -27,6 +27,7 @@
 					</RelatedMaterial>
 				</BasicDescription>
 				<MemberOf xsi:type="MemberOfType" index="1" crid="crid://mdata.co.uk/collections/boxsets/stewart_lee"/>
+				<MemberOf xsi:type="MemberOfType" index="1" crid="crid://mdata.co.uk/collections/boxsets/stewart_lee/series_1"/>
 			</ProgramInformation>
 			<ProgramInformation programId="crid://mybroadcaster.co.uk/mdata/episode/b00jhpy6">
 				<BasicDescription>
@@ -40,10 +41,15 @@
 					</RelatedMaterial>
 				</BasicDescription>
 				<MemberOf xsi:type="MemberOfType" index="2" crid="crid://mdata.co.uk/collections/boxsets/stewart_lee"/>
+				<MemberOf xsi:type="MemberOfType" index="2" crid="crid://mdata.co.uk/collections/boxsets/stewart_lee/series_1"/>
 			</ProgramInformation>
 		</ProgramInformationTable>
 		<GroupInformationTable>
 			<GroupInformation groupId="crid://mdata.co.uk/collections/boxsets/stewart_lee" ordered="true" numOfItems="2" serviceIDRef="http://www.mybroadcaster.co.uk/mdata/service/apps/broadcast_two2">
+				<GroupType xsi:type="ProgramGroupTypeType" value="otherCollection"/>
+				<BasicDescription/>
+			</GroupInformation>
+			<GroupInformation groupId="crid://mdata.co.uk/collections/boxsets/stewart_lee/series_1" ordered="true" numOfItems="2" serviceIDRef="http://www.mybroadcaster.co.uk/mdata/service/apps/broadcast_two2">
 				<GroupType xsi:type="ProgramGroupTypeType" value="otherCollection"/>
 				<BasicDescription/>
 			</GroupInformation>

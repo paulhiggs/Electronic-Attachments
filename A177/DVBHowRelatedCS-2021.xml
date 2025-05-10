@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ClassificationScheme uri="urn:dvb:metadata:cs:HowRelatedCS:2021" xmlns="urn:tva:mpeg7:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:tva:mpeg7:2008 tva_mpeg7.xsd" xsi:type="ClassificationSchemeType">
 	<!-- ##################################################################### -->
-	<!-- HOWRELATED -->
-	<!--Definition: A series of definitions for possible relations between services
-				or programmes -->
+	<!-- HOWRELATED                                                            -->
+	<!--Definition: A series of definitions for possible relations between     -->
+	<!--           services	or programmes                                      -->
 	<!-- ##################################################################### -->
 	<Term termID="1000">
 		<Name xml:lang="en"> Service Related Material</Name>

@@ -14,7 +14,7 @@
 	<!ENTITY Hex16 "&HexDigit;{1,4}">
 	<!ENTITY Hex8 "&HexDigit;{1,2}">
 ]>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:dvbisd="urn:dvb:metadata:servicediscovery:2022" xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns:tva="urn:tva:metadata:2019" targetNamespace="urn:dvb:metadata:servicediscovery:2022" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:dvbisd="urn:dvb:metadata:servicediscovery:2022b" xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns:tva="urn:tva:metadata:2019" targetNamespace="urn:dvb:metadata:servicediscovery:2022b" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<import namespace="urn:tva:metadata:2019" schemaLocation="tva_metadata_3-1.xsd"/>
 	<import namespace="urn:tva:mpeg7:2008" schemaLocation="tva_mpeg7.xsd"/>
 	<import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
@@ -37,6 +37,19 @@
 			<any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
 		<attribute name="version" type="positiveInteger" use="required"/>
+		<attribute name="responseStatus" use="optional">
+			<simpleType>
+				<restriction base="string">
+					<enumeration value="OK"/>
+					<enumeration value="ERROR_INVALID_MUX_INFO"/>
+					<enumeration value="ERROR_INVALID_REQUEST"/>
+					<enumeration value="ERROR_BUSY"/>
+					<enumeration value="ERROR_GENERIC_FAILURE"/>
+					<enumeration value="ERROR_INVALID_POSTCODE"/>
+					<enumeration value="ERROR_INVALID_REGION_ID"/>
+				</restriction>
+			</simpleType>
+		</attribute>
 		<attribute ref="xml:lang" use="required"/>
 	</complexType>
 	<complexType name="ContentGuideSourceListType">
@@ -81,8 +94,9 @@
 				<element name="ContentGuideSource" type="dvbisd:ContentGuideSourceType"/>
 				<element name="ContentGuideSourceRef" type="dvbisd:ContentGuideProviderRefIdType"/>
 			</choice>
-			<element name="ContentGuideServiceRef" type="dvbisd:ServiceIdentifierType" minOccurs="0"/>
+			<element name="ContentGuideServiceRef" type="string" minOccurs="0"/>
 			<element name="AdditionalServiceParameters" type="dvbisd:ExtensionBaseType" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="NVOD" type="dvbisd:NVODType" minOccurs="0"/>
 		</sequence>
 		<attribute name="dynamic" type="boolean" default="false"/>
 		<attribute name="version" type="positiveInteger" use="required"/>
@@ -99,6 +113,7 @@
 			<element name="SubscriptionPackage" type="dvbisd:SubscriptionPackageType" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="FTAContentManagement" type="dvbisd:FTAContentManagementType" minOccurs="0"/>
 			<element name="SourceType" type="anyURI" minOccurs="0"/>
+			<element name="AltServiceName" type="string" minOccurs="0" maxOccurs="unbounded"/>
 			<choice minOccurs="0">
 				<sequence>
 					<element name="DVBTDeliveryParameters" type="dvbisd:DVBTDeliveryParametersType"/>
@@ -297,6 +312,7 @@
 			<element name="Region" type="dvbisd:RegionType" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
 		<attribute name="regionID" type="dvbisd:RegionIdType" use="required"/>
+		<attribute name="selectable" type="boolean" default="true"/>
 		<attribute name="countryCodes" type="dvbisd:ISO-3166-List" use="optional"/>
 		<attribute ref="xml:lang"/>
 	</complexType>
@@ -372,7 +388,7 @@
 		<sequence>
 			<element name="SubscriptionPackage" type="dvbisd:SubscriptionPackageType" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-		<attribute name="alloNoPackage" type="boolean" default="true"/>
+		<attribute name="allowNoPackage" type="boolean" default="true"/>
 	</complexType>
 	<complexType name="DASHPlaylistType">
 		<sequence>
@@ -384,6 +400,24 @@
 			<simpleType>
 				<restriction base="string">
 					<pattern value="[A-Za-z0-9][A-Za-z0-9:\-/\.]*[A-Za-z0-9]"/>
+				</restriction>
+			</simpleType>
+		</attribute>
+	</complexType>
+	<complexType name="NVODType">
+		<attribute name="mode" use="required">
+			<simpleType>
+				<restriction base="string">
+					<enumeration value="reference"/>
+					<enumeration value="timeshifted"/>
+				</restriction>
+			</simpleType>
+		</attribute>
+		<attribute name="reference" type="dvbisd:ServiceIdentifierType"/>
+		<attribute name="offset" default="PT0S">
+			<simpleType>
+				<restriction base="duration">
+					<minInclusive value="PT0S"/>
 				</restriction>
 			</simpleType>
 		</attribute>
@@ -462,7 +496,7 @@
 			<element name="AudioAttributes" type="tva:AudioAttributesType" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="AudioConformancePoint" type="tva:ControlledTermType" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="VideoAttributes" type="dvbisd:VideoAttributesType" minOccurs="0" maxOccurs="unbounded"/>
-			<element name="VideoConformancePoint" type="tva:ControlledTermType" minOccurs="0" />
+			<element name="VideoConformancePoint" type="tva:ControlledTermType" minOccurs="0"/>
 			<element name="CaptionLanguage" type="tva:CaptionLanguageType" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="SignLanguage" type="tva:SignLanguageType" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>

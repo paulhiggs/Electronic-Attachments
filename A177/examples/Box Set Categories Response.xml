@@ -12,9 +12,7 @@
 				<GroupType xsi:type="ProgramGroupTypeType" value="otherCollection"/>
 				<BasicDescription>
 					<Title>Decent Comedy</Title>
-					<Synopsis length="short">
-						Quality cult comedies from the likes of Armando Iannucci, Chris 
-						Morris and Stewart Lee</Synopsis>
+					<Synopsis length="short">Quality cult comedies from the likes of Armando Iannucci, Chris Morris and Stewart Lee</Synopsis>
 					<RelatedMaterial>
 						<HowRelated href="urn:tva:metadata:cs:HowRelatedCS:2012:19"/>
 						<MediaLocator>
@@ -30,9 +28,7 @@
 				<GroupType xsi:type="ProgramGroupTypeType" value="otherCollection"/>
 				<BasicDescription>
 					<Title>Popularist Comedy</Title>
-					<Synopsis length="short">
-						Popularist comedy featuring such turns as Michael McIntyre and Mrs Brown
-					</Synopsis>
+					<Synopsis length="short">Popularist comedy featuring such turns as Michael McIntyre and Mrs Brown</Synopsis>
 					<RelatedMaterial>
 						<HowRelated href="urn:tva:metadata:cs:HowRelatedCS:2012:19"/>
 						<MediaLocator>

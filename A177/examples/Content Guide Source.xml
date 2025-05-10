@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ServiceList xmlns="urn:dvb:metadata:servicediscovery:2022" version="1" xml:lang="en" xmlns:tva="urn:tva:metadata:2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicediscovery:2022 ../dvbi_v3.1.xsd">
+<ServiceList xmlns="urn:dvb:metadata:servicediscovery:2022b" version="1" xml:lang="en" xmlns:tva="urn:tva:metadata:2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicediscovery:2022b ../dvbi_v4.0.xsd">
 	<Name xml:lang="en">Content Guide Source exmaple</Name>
 	<ProviderName xml:lang="en">Content Guide Source</ProviderName>
 	<ContentGuideSourceList>

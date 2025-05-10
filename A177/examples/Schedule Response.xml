@@ -100,7 +100,7 @@
                     <PublishedDuration>PT30M</PublishedDuration>
                 </ScheduleEvent>
             </Schedule>
-            <OnDemandProgram>
+            <OnDemandProgram serviceIDRef="tag:channel7.co.uk,2019:linear3039">
                 <Program crid="crid://channel7.co.uk/b01myjsy"/>
                 <ProgramURL contentType="application/vnd.dvb.ait+xml">https://channel7.co.uk/ait.aitx?pid=b01myjsy</ProgramURL>
                 <AuxiliaryURL contentType="application/vnd.dvb.ait+xml">https://channel7.co.uk/ait.aitx?template</AuxiliaryURL>
