@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Playlist xmlns="urn:dvb:metadata:servicediscovery:2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicediscovery:2019 ..\dvbi_v1.0.xsd">
+	<PlaylistEntry>http://www.broadcaster.com/mpd/my_first_clip.mpd</PlaylistEntry>
+	<PlaylistEntry>http://www.broadcaster.com/mpd/my_second_clip.mpd</PlaylistEntry>
+	<PlaylistEntry>http://www.broadcaster.com/mpd/my_third_clip.mpd</PlaylistEntry>
+</Playlist>
