@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema xmlns:tva="urn:tva:metadata:2023" xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:tva:metadata:2023" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<schema xmlns:tva="urn:tva:metadata:2019" xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:tva:metadata:2019" elementFormDefault="qualified" attributeFormDefault="unqualified">
 	<annotation>
-		<documentation xml:lang="en">This schema consists of datatypes that are normatively defined in ETSI TS 102 822-3-1 v1.12.1</documentation>
+		<documentation xml:lang="en">This schema consists of datatypes that are normatively defined
+			in ETSI TS 102 822-3-1 v1.11.1</documentation>
 	</annotation>
 	<annotation>
-		<documentation xml:lang="en">Changes for this new version of the TVA specification </documentation>
-		<documentation xml:lang="en"> 1. added contentLanguage attribute to TVAMediaLocatorType to denote the language of any elements in the reference media</documentation>
+		<documentation xml:lang="en"> Proposed change for this new version of the TVA specification </documentation>
+		<documentation xml:lang="en"> 1. Enriched the format of RelatedMaterialType - AVAttributes and StillPictureFormat</documentation>
+		<documentation xml:lang="en"> 2. ServiceURL in ServiceInformationType</documentation>
+		<documentation xml:lang="en"> 3. ServiceType in ServiceInformationType</documentation>
+		<documentation xml:lang="en"> 4. New InstanceMetadataIdRef element in SegmentInformationType</documentation>
+		<documentation xml:lang="en"> 5. New isSkippable and isPrintable attributes in SegmentInformationType</documentation>
+		<documentation xml:lang="en"> 6. New type attribute in TVAMainType to define a type of xml document</documentation>
 	</annotation>
 	<import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
 	<import namespace="urn:tva:mpeg7:2008" schemaLocation="tva_mpeg7.xsd"/>
@@ -20,18 +26,20 @@
 	<complexType name="TVAMainType">
 		<sequence>
 			<element name="CopyrightNotice" type="mpeg7:TextualType" minOccurs="0" maxOccurs="unbounded"/>
+			<!--element name="CopyrightNotice" type="tva:CopyrightNoticeType" minOccurs="0"
+				maxOccurs="unbounded"/-->
 			<element name="MetadataOriginationInformationTable" type="tva:MetadataOriginationInformationTableType" minOccurs="0"/>
 			<element name="ClassificationSchemeTable" type="tva:ClassificationSchemeTableType" minOccurs="0"/>
 			<element name="ProgramDescription" type="tva:ProgramDescriptionType" minOccurs="0"/>
 			<element name="UserDescription" type="tva:UserDescriptionType" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
 		<attribute ref="xml:lang" use="required"/>
-		<attribute name="publisher" type="string"/>
-		<attribute name="publicationTime" type="dateTime"/>
-		<attribute name="rightsOwner" type="string"/>
-		<attribute name="originID" type="tva:TVAIDRefType"/>
-		<attribute name="version" type="unsignedInt"/>
-		<attribute name="type">
+		<attribute name="publisher" type="string" use="optional"/>
+		<attribute name="publicationTime" type="dateTime" use="optional"/>
+		<attribute name="rightsOwner" type="string" use="optional"/>
+		<attribute name="originID" type="tva:TVAIDRefType" use="optional"/>
+		<attribute name="version" type="unsignedInt" use="optional"/>
+		<attribute name="type" use="optional">
 			<simpleType>
 				<restriction base="string">
 					<enumeration value="epg"/>
@@ -45,8 +53,8 @@
 	<complexType name="ExtendedURIType">
 		<simpleContent>
 			<extension base="anyURI">
-				<attribute name="contentType" type="mpeg7:mimeType"/>
-				<attribute name="uriType" type="mpeg7:termReferenceType"/>
+				<attribute name="contentType" type="mpeg7:mimeType" use="optional"/>
+				<attribute name="uriType" type="mpeg7:termReferenceType" use="optional"/>
 			</extension>
 		</simpleContent>
 	</complexType>
@@ -61,7 +69,6 @@
 			</choice>
 			<element name="StreamID" type="nonNegativeInteger" minOccurs="0"/>
 		</sequence>
-		<attribute name="contentLanguage" type="language"/>
 	</complexType>
 	<simpleType name="TVAIDType">
 		<restriction base="string"/>
@@ -104,7 +111,7 @@
 	<complexType name="TermNameType">
 		<simpleContent>
 			<extension base="mpeg7:TextualType">
-				<attribute name="preferred" type="boolean"/>
+				<attribute name="preferred" type="boolean" use="optional"/>
 			</extension>
 		</simpleContent>
 	</complexType>
@@ -171,9 +178,9 @@
 		</sequence>
 	</complexType>
 	<attributeGroup name="fragmentIdentification">
-		<attribute name="fragmentId" type="tva:TVAIDType"/>
-		<attribute name="fragmentVersion" type="unsignedLong"/>
-		<attribute name="fragmentExpirationDate" type="dateTime"/>
+		<attribute name="fragmentId" type="tva:TVAIDType" use="optional"/>
+		<attribute name="fragmentVersion" type="unsignedLong" use="optional"/>
+		<attribute name="fragmentExpirationDate" type="dateTime" use="optional"/>
 	</attributeGroup>
 	<annotation>
 		<documentation xml:lang="en">Section 6.3.4 DESCRIPTION</documentation>
@@ -181,7 +188,7 @@
 	<complexType name="KeywordType">
 		<simpleContent>
 			<extension base="mpeg7:TextualType">
-				<attribute name="type" default="main">
+				<attribute name="type" use="optional" default="main">
 					<simpleType>
 						<restriction base="NMTOKEN">
 							<enumeration value="main"/>
@@ -190,14 +197,14 @@
 						</restriction>
 					</simpleType>
 				</attribute>
-				<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
+				<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
 			</extension>
 		</simpleContent>
 	</complexType>
 	<complexType name="GenreType">
 		<complexContent>
 			<extension base="tva:ControlledTermType">
-				<attribute name="type" default="main">
+				<attribute name="type" use="optional" default="main">
 					<simpleType>
 						<restriction base="string">
 							<enumeration value="main"/>
@@ -206,7 +213,7 @@
 						</restriction>
 					</simpleType>
 				</attribute>
-				<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
+				<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
 			</extension>
 		</complexContent>
 	</complexType>
@@ -222,7 +229,7 @@
 	<complexType name="SynopsisType">
 		<simpleContent>
 			<extension base="mpeg7:TextualType">
-				<attribute name="length" type="tva:SynopsisLengthType"/>
+				<attribute name="length" type="tva:SynopsisLengthType" use="optional"/>
 			</extension>
 		</simpleContent>
 	</complexType>
@@ -273,7 +280,6 @@
 			</element>
 			<element name="SourceMediaLocator" type="mpeg7:MediaLocatorType" minOccurs="0"/>
 		</sequence>
-		<attribute ref="xml:lang"/>
 	</complexType>
 	<complexType name="CreditsItemType">
 		<complexContent>
@@ -286,7 +292,7 @@
 					<element name="RelatedMaterial" type="tva:RelatedMaterialType" minOccurs="0" maxOccurs="unbounded"/>
 				</sequence>
 				<attribute name="role" type="mpeg7:termReferenceType" use="required"/>
-				<attribute name="index" type="nonNegativeInteger"/>
+				<attribute name="index" type="nonNegativeInteger" use="optional"/>
 			</extension>
 		</complexContent>
 	</complexType>
@@ -332,20 +338,20 @@
 	<complexType name="CaptionLanguageType">
 		<simpleContent>
 			<extension base="language">
-				<attribute name="primary" type="boolean"/>
-				<attribute name="translation" type="boolean"/>
-				<attribute name="closed" type="boolean" default="true"/>
-				<attribute name="supplemental" type="boolean" default="false"/>
+				<attribute name="primary" type="boolean" use="optional"/>
+				<attribute name="translation" type="boolean" use="optional"/>
+				<attribute name="closed" type="boolean" use="optional" default="true"/>
+				<attribute name="supplemental" type="boolean" use="optional" default="false"/>
 			</extension>
 		</simpleContent>
 	</complexType>
 	<complexType name="SignLanguageType">
 		<simpleContent>
 			<extension base="language">
-				<attribute name="primary" type="boolean"/>
-				<attribute name="translation" type="boolean"/>
-				<attribute name="type" type="string"/>
-				<attribute name="closed" type="boolean"/>
+				<attribute name="primary" type="boolean" use="optional"/>
+				<attribute name="translation" type="boolean" use="optional"/>
+				<attribute name="type" type="string" use="optional"/>
+				<attribute name="closed" type="boolean" use="optional"/>
 			</extension>
 		</simpleContent>
 	</complexType>
@@ -358,7 +364,7 @@
 	<complexType name="TVAPlaceType">
 		<complexContent>
 			<extension base="mpeg7:PlaceType">
-				<attribute name="fictional" type="boolean" default="false"/>
+				<attribute name="fictional" type="boolean" use="optional" default="false"/>
 			</extension>
 		</complexContent>
 	</complexType>
@@ -395,8 +401,8 @@
 			<element name="QuantityUnit" type="tva:ControlledTermType" minOccurs="0"/>
 			<element name="QuantityRange" minOccurs="0">
 				<complexType>
-					<attribute name="min" type="unsignedInt"/>
-					<attribute name="max" type="unsignedInt"/>
+					<attribute name="min" type="unsignedInt" use="optional"/>
+					<attribute name="max" type="unsignedInt" use="optional"/>
 				</complexType>
 			</element>
 		</sequence>
@@ -409,8 +415,8 @@
 			<element name="PricingServerURL" type="anyURI" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="DRMDeclaration" type="tva:DRMDeclarationType" minOccurs="0"/>
 		</sequence>
-		<attribute name="start" type="dateTime"/>
-		<attribute name="end" type="dateTime"/>
+		<attribute name="start" type="dateTime" use="optional"/>
+		<attribute name="end" type="dateTime" use="optional"/>
 	</complexType>
 	<complexType name="PurchaseListType">
 		<sequence>
@@ -420,6 +426,13 @@
 			</choice>
 		</sequence>
 	</complexType>
+	<!--complexType name="CopyrightNoticeType">
+		<simpleContent>
+			<extension  base="mpeg7:TextualType">
+				<attribute name="lang" type="language"/>
+			</extension>
+		</simpleContent>
+	</complexType-->
 	<simpleType name="ExplanationLengthType">
 		<restriction base="string">
 			<enumeration value="short"/>
@@ -430,32 +443,15 @@
 	<complexType name="ExplanationType">
 		<simpleContent>
 			<extension base="mpeg7:TextualType">
-				<attribute name="length" type="tva:ExplanationLengthType"/>
+				<attribute name="length" type="tva:ExplanationLengthType" use="optional"/>
 			</extension>
 		</simpleContent>
 	</complexType>
-	<simpleType name="ISO-3166-Code">
-		<annotation>
-			<documentation xml:lang="en">A country code, as defined by ISO 3166.</documentation>
-		</annotation>
-		<restriction base="string">
-			<pattern value="[A-Z]{3};"/>
-		</restriction>
-	</simpleType>
-		<simpleType name="ISO-3166-List">
-		<annotation>
-			<documentation xml:lang="en">A comma separated list of one or more country codes, where the codes are defined by ISO 3166.</documentation>
-		</annotation>
-		<restriction base="string">
-			<pattern value="[A-Z]{3}(,[A-Z]{3})*"/>
-		</restriction>
-	</simpleType>
 	<complexType name="TVAParentalGuidanceType">
 		<complexContent>
 			<extension base="mpeg7:ParentalGuidanceType">
 				<sequence>
 					<element name="ExplanatoryText" type="tva:ExplanationType" minOccurs="0" maxOccurs="unbounded"/>
-					<element name="CountryCodes" type="tva:ISO-3166-List" minOccurs="0"/>
 				</sequence>
 			</extension>
 		</complexContent>
@@ -491,17 +487,17 @@
 	<complexType name="BitRateType">
 		<simpleContent>
 			<extension base="nonNegativeInteger">
-				<attribute name="variable" type="boolean" default="false"/>
-				<attribute name="minimum" type="unsignedLong"/>
-				<attribute name="average" type="unsignedLong"/>
-				<attribute name="maximum" type="unsignedLong"/>
+				<attribute name="variable" type="boolean" use="optional" default="false"/>
+				<attribute name="minimum" type="unsignedLong" use="optional"/>
+				<attribute name="average" type="unsignedLong" use="optional"/>
+				<attribute name="maximum" type="unsignedLong" use="optional"/>
 			</extension>
 		</simpleContent>
 	</complexType>
 	<complexType name="AudioLanguageType">
 		<simpleContent>
 			<extension base="mpeg7:ExtendedLanguageType">
-				<attribute name="purpose" type="mpeg7:termReferenceType"/>
+				<attribute name="purpose" type="mpeg7:termReferenceType" use="optional"/>
 			</extension>
 		</simpleContent>
 	</complexType>
@@ -513,7 +509,7 @@
 			<element name="AudioLanguage" type="tva:AudioLanguageType" minOccurs="0"/>
 			<element name="SampleFrequency" type="unsignedInt" minOccurs="0"/>
 			<element name="BitsPerSample" type="unsignedInt" minOccurs="0"/>
-			<element name="BitRate" type="tva:BitRateType" minOccurs="0"/>
+			<element name="BitRate" type="tva:BitRateType" minOccurs="0" maxOccurs="1"/>
 		</sequence>
 	</complexType>
 	<simpleType name="FrameRateType">
@@ -578,7 +574,7 @@
 	<complexType name="AspectRatioType">
 		<simpleContent>
 			<extension base="tva:RatioType">
-				<attribute name="type" default="original">
+				<attribute name="type" use="optional" default="original">
 					<simpleType>
 						<restriction base="string">
 							<enumeration value="original"/>
@@ -619,8 +615,8 @@
 		</sequence>
 		<attribute name="programId" type="tva:CRIDType" use="required"/>
 		<attributeGroup ref="tva:fragmentIdentification"/>
-		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
-		<attribute ref="xml:lang"/>
+		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
+		<attribute ref="xml:lang" use="optional"/>
 	</complexType>
 	<complexType name="EpisodeOfType">
 		<complexContent>
@@ -633,7 +629,7 @@
 				<sequence>
 					<element name="TimeLimitation" type="tva:ValidPeriodType" minOccurs="0" maxOccurs="unbounded"/>
 				</sequence>
-				<attribute name="index" type="unsignedInt"/>
+				<attribute name="index" type="unsignedInt" use="optional"/>
 			</extension>
 		</complexContent>
 	</complexType>
@@ -719,12 +715,12 @@
 			<element name="AggregationOf" type="tva:AggregationOfType" minOccurs="0"/>
 		</sequence>
 		<attribute name="groupId" type="tva:CRIDType" use="required"/>
-		<attribute name="ordered" type="boolean" default="false"/>
-		<attribute name="numOfItems" type="unsignedInt"/>
+		<attribute name="ordered" type="boolean" use="optional" default="false"/>
+		<attribute name="numOfItems" type="unsignedInt" use="optional"/>
 		<attributeGroup ref="tva:fragmentIdentification"/>
-		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
-		<attribute ref="xml:lang"/>
-		<attribute name="serviceIDRef" type="tva:TVAIDRefsType"/>
+		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
+		<attribute ref="xml:lang" use="optional"/>
+		<attribute name="serviceIDRef" type="tva:TVAIDRefsType" use="optional"/>
 	</complexType>
 	<annotation>
 		<documentation xml:lang="en">Section 6.3.8 MEDIA REVIEW DS</documentation>
@@ -752,8 +748,8 @@
 			<extension base="tva:MediaReviewType">
 				<attribute name="programId" type="tva:CRIDType" use="required"/>
 				<attributeGroup ref="tva:fragmentIdentification"/>
-				<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
-				<attribute ref="xml:lang"/>
+				<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
+				<attribute ref="xml:lang" use="optional"/>
 			</extension>
 		</complexContent>
 	</complexType>
@@ -761,8 +757,8 @@
 		<sequence>
 			<element name="Review" type="tva:ReviewType" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
-		<attribute ref="xml:lang"/>
+		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
+		<attribute ref="xml:lang" use="optional"/>
 	</complexType>
 	<annotation>
 		<documentation xml:lang="en">Section 6.4.2 PROGRAM LOCATION</documentation>
@@ -775,10 +771,10 @@
 	<complexType name="ProgramLocationType" abstract="true">
 		<sequence>
 			<element name="Program" type="tva:CRIDRefType"/>
-			<element name="ProgramURL" type="tva:ExtendedURIType" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="ProgramURL" type="tva:ExtendedURIType" minOccurs="0"/>
 			<element name="AuxiliaryURL" type="tva:ExtendedURIType" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="InstanceMetadataId" type="tva:InstanceMetadataIdType" minOccurs="0"/>
-			<element name="InstanceDescription" type="tva:InstanceDescriptionType" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="InstanceDescription" type="tva:InstanceDescriptionType" minOccurs="0"/>
 		</sequence>
 	</complexType>
 	<complexType name="ScheduleType">
@@ -786,11 +782,11 @@
 			<element name="ScheduleEvent" type="tva:ScheduleEventType" maxOccurs="unbounded"/>
 		</sequence>
 		<attribute name="serviceIDRef" type="tva:TVAIDRefsType" use="required"/>
-		<attribute name="start" type="dateTime"/>
-		<attribute name="end" type="dateTime"/>
+		<attribute name="start" type="dateTime" use="optional"/>
+		<attribute name="end" type="dateTime" use="optional"/>
 		<attributeGroup ref="tva:fragmentIdentification"/>
-		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
-		<attribute ref="xml:lang"/>
+		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
+		<attribute ref="xml:lang" use="optional"/>
 	</complexType>
 	<complexType name="ScheduleEventType">
 		<complexContent>
@@ -810,15 +806,15 @@
 					<!-- NOT NEEDED -->
 					<!--element name="IsRecordable" type="tva:FlagType" minOccurs="0"/-->
 				</sequence>
-				<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
-				<attribute ref="xml:lang"/>
+				<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
+				<attribute ref="xml:lang" use="optional"/>
 			</extension>
 		</complexContent>
 	</complexType>
 	<complexType name="BroadcastEventType">
 		<complexContent>
 			<extension base="tva:ScheduleEventType">
-				<attribute name="serviceIDRef" type="tva:TVAIDRefsType"/>
+				<attribute name="serviceIDRef" type="tva:TVAIDRefsType" use="optional"/>
 				<attributeGroup ref="tva:fragmentIdentification"/>
 			</extension>
 		</complexContent>
@@ -839,25 +835,25 @@
 					<element name="FirstAvailability" type="tva:FlagType" minOccurs="0"/>
 					<element name="LastAvailability" type="tva:FlagType" minOccurs="0"/>
 					<element name="ImmediateViewing" type="tva:FlagType" minOccurs="0"/>
-					<element name="DeliveryMode" type="tva:DeliveryModeType" minOccurs="0"/>
-					<element name="ContentVersion" type="unsignedByte" minOccurs="0"/>
-					<element name="ExpiryTime" type="dateTime" minOccurs="0"/>
-					<element name="EarlyPlayout" type="tva:FlagType" minOccurs="0"/>
-					<element name="Free" type="tva:FlagType" minOccurs="0"/>
-					<element name="ExpiryTimeAfterFirsStart" type="duration" minOccurs="0"/>
-					<element name="EmbargoTime" type="dateTime" minOccurs="0"/>
+					<element name="DeliveryMode" type="tva:DeliveryModeType" minOccurs="0" maxOccurs="1"/>
+					<element name="ContentVersion" type="unsignedByte" minOccurs="0" maxOccurs="1"/>
+					<element name="ExpiryTime" type="dateTime" minOccurs="0" maxOccurs="1"/>
+					<element name="EarlyPlayout" type="tva:FlagType" minOccurs="0" maxOccurs="1"/>
+					<element name="Free" type="tva:FlagType" minOccurs="0" maxOccurs="1"/>
+					<element name="ExpiryTimeAfterFirsStart" type="duration" minOccurs="0" maxOccurs="1"/>
+					<element name="EmbargoTime" type="dateTime" minOccurs="0" maxOccurs="1"/>
 					<element name="MaxNumberOfDownloads" type="int" minOccurs="0"/>
-					<element name="ExpiryTimeAfterDownload" type="duration" minOccurs="0"/>
-					<element name="ExpiryTimeAfterDownloadFirstStart" type="duration" minOccurs="0"/>
+					<element name="ExpiryTimeAfterDownload" type="duration" minOccurs="0" maxOccurs="1"/>
+					<element name="ExpiryTimeAfterDownloadFirstStart" type="duration" minOccurs="0" maxOccurs="1"/>
 					<!-- NOT needed - see isSkippable in segment -->
 					<!-- timeshift is a functionality to watch content later -->
-					<!-- element name="TimeshiftNotPermitted" type="tva:FlagType" minOccurs="0"/-->
+					<!-- element name="TimeshiftNotPermitted" type="tva:FlagType" minOccurs="0" maxOccurs="1"/-->
 					<!-- element name="ConsumptionMode" type="tva:DeliveryModeType" minOccurs="0"/-->
 				</sequence>
 				<attributeGroup ref="tva:fragmentIdentification"/>
-				<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
-				<attribute ref="xml:lang"/>
-				<attribute name="serviceIDRef" type="tva:TVAIDRefsType"/>
+				<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
+				<attribute ref="xml:lang" use="optional"/>
+				<attribute name="serviceIDRef" type="tva:TVAIDRefsType" use="optional"/>
 			</extension>
 		</complexContent>
 	</complexType>
@@ -867,8 +863,8 @@
 		</sequence>
 		<attribute name="serviceIDRef" type="tva:TVAIDRefsType" use="required"/>
 		<attributeGroup ref="tva:fragmentIdentification"/>
-		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
-		<attribute ref="xml:lang"/>
+		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
+		<attribute ref="xml:lang" use="optional"/>
 	</complexType>
 	<complexType name="PushDownloadType" mixed="false">
 		<complexContent>
@@ -877,14 +873,14 @@
 					<element name="PublishedDuration" type="duration" minOccurs="0"/>
 					<element name="StartOfAvailability" type="dateTime" minOccurs="0"/>
 					<element name="EndOfAvailability" type="dateTime" minOccurs="0"/>
-					<element name="ContentVersion" type="unsignedByte" minOccurs="0"/>
-					<element name="ExpiryTime" type="dateTime" minOccurs="0"/>
-					<element name="ActivationTime" type="dateTime" minOccurs="0"/>
+					<element name="ContentVersion" type="unsignedByte" minOccurs="0" maxOccurs="1"/>
+					<element name="ExpiryTime" type="dateTime" minOccurs="0" maxOccurs="1"/>
+					<element name="ActivationTime" type="dateTime" minOccurs="0" maxOccurs="1"/>
 				</sequence>
 				<attributeGroup ref="tva:fragmentIdentification"/>
-				<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
-				<attribute ref="xml:lang"/>
-				<attribute name="serviceIDRef" type="tva:TVAIDRefsType"/>
+				<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
+				<attribute ref="xml:lang" use="optional"/>
+				<attribute name="serviceIDRef" type="tva:TVAIDRefsType" use="optional"/>
 			</extension>
 		</complexContent>
 	</complexType>
@@ -902,7 +898,6 @@
 			<element name="OtherIdentifier" type="mpeg7:UniqueIDType" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="RelatedMaterial" type="tva:RelatedMaterialType" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-		<attribute name="serviceInstanceID" type="string"/>
 	</complexType>
 	<annotation>
 		<documentation xml:lang="en">Section 6.4.3 SERVICE INFORMATION</documentation>
@@ -917,7 +912,7 @@
 	<complexType name="ServiceInformationNameType">
 		<simpleContent>
 			<extension base="mpeg7:TextualType">
-				<attribute name="length" type="tva:serviceInformationNameLengthType"/>
+				<attribute name="length" type="tva:serviceInformationNameLengthType" use="optional"/>
 			</extension>
 		</simpleContent>
 	</complexType>
@@ -963,8 +958,8 @@
 		</sequence>
 		<attribute name="serviceId" type="tva:TVAIDType" use="required"/>
 		<attributeGroup ref="tva:fragmentIdentification"/>
-		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
-		<attribute ref="xml:lang"/>
+		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
+		<attribute ref="xml:lang" use="optional"/>
 	</complexType>
 	<annotation>
 		<documentation xml:lang="en">Section 6.5 CONSUMER METADATA (mostly imported from MPEG-7; see
@@ -975,7 +970,7 @@
 			<extension base="mpeg7:UserActionType">
 				<sequence>
 					<element name="ProgramLocation" type="tva:ExtendedURIType" minOccurs="0"/>
-					<element name="Rating" type="mpeg7:RatingType" minOccurs="0"/>
+					<element name="Rating" type="mpeg7:RatingType" minOccurs="0" maxOccurs="1"/>
 				</sequence>
 			</extension>
 		</complexContent>
@@ -996,7 +991,7 @@
 	<complexType name="TVAMediaRelIncrTimePointType">
 		<simpleContent>
 			<restriction base="mpeg7:MediaRelIncrTimePointType">
-				<attribute name="mediaTimeUnit" type="mpeg7:mediaDurationType" default="PT1N1000F"/>
+				<attribute name="mediaTimeUnit" type="mpeg7:mediaDurationType" use="optional" default="PT1N1000F"/>
 			</restriction>
 		</simpleContent>
 	</complexType>
@@ -1033,14 +1028,14 @@
 		</sequence>
 		<attribute name="segmentId" type="tva:TVAIDType" use="required"/>
 		<attributeGroup ref="tva:fragmentIdentification"/>
-		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
-		<attribute ref="xml:lang"/>
+		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
+		<attribute ref="xml:lang" use="optional"/>
 		<attribute name="isSkippable" type="boolean">
 			<annotation>
 				<documentation> A flag to signal if the segment can be skipped. </documentation>
 			</annotation>
 		</attribute>
-		<attribute name="isPrintable" type="boolean">
+		<attribute name="isPrintable" type="boolean" use="optional">
 			<annotation>
 				<documentation> A flag to signal if the information about that segment can be
 					published / printed e.g. in program guides. </documentation>
@@ -1048,7 +1043,7 @@
 		</attribute>
 	</complexType>
 	<complexType name="GroupIntervalType">
-		<attribute name="ref" type="tva:TVAIDRefType"/>
+		<attribute name="ref" type="tva:TVAIDRefType" use="optional"/>
 	</complexType>
 	<complexType name="SegmentsType">
 		<attribute name="refList" type="tva:TVAIDRefsType" use="required"/>
@@ -1071,14 +1066,14 @@
 			<element name="OtherIdentifier" type="mpeg7:UniqueIDType" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
 		<attribute name="groupId" type="tva:TVAIDType" use="required"/>
-		<attribute name="ordered" type="boolean" default="true"/>
-		<attribute name="numberOfSegments" type="unsignedShort"/>
-		<attribute name="numberOfKeyFrames" type="unsignedShort"/>
-		<attribute name="duration" type="mpeg7:mediaDurationType"/>
-		<attribute name="topLevel" type="boolean"/>
+		<attribute name="ordered" type="boolean" use="optional" default="true"/>
+		<attribute name="numberOfSegments" type="unsignedShort" use="optional"/>
+		<attribute name="numberOfKeyFrames" type="unsignedShort" use="optional"/>
+		<attribute name="duration" type="mpeg7:mediaDurationType" use="optional"/>
+		<attribute name="topLevel" type="boolean" use="optional"/>
 		<attributeGroup ref="tva:fragmentIdentification"/>
-		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
-		<attribute ref="xml:lang"/>
+		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
+		<attribute ref="xml:lang" use="optional"/>
 	</complexType>
 	<complexType name="BaseSegmentGroupTypeType" abstract="true"/>
 	<complexType name="SegmentGroupTypeType">
@@ -1125,8 +1120,8 @@
 			<element name="SegmentList" type="tva:SegmentListType" minOccurs="0"/>
 			<element name="SegmentGroupList" type="tva:SegmentGroupListType" minOccurs="0"/>
 		</sequence>
-		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
-		<attribute ref="xml:lang"/>
+		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
+		<attribute ref="xml:lang" use="optional"/>
 	</complexType>
 	<annotation>
 		<documentation xml:lang="en">Section 6.7.1 INFORMATION TABLES</documentation>
@@ -1135,15 +1130,15 @@
 		<sequence>
 			<element name="ProgramInformation" type="tva:ProgramInformationType" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
-		<attribute ref="xml:lang"/>
+		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
+		<attribute ref="xml:lang" use="optional"/>
 	</complexType>
 	<complexType name="GroupInformationTableType">
 		<sequence>
 			<element name="GroupInformation" type="tva:GroupInformationType" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
-		<attribute ref="xml:lang"/>
+		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
+		<attribute ref="xml:lang" use="optional"/>
 	</complexType>
 	<complexType name="ProgramLocationTableType">
 		<sequence>
@@ -1153,15 +1148,15 @@
 			<element name="OnDemandService" type="tva:OnDemandServiceType" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="PushDownloadProgram" type="tva:PushDownloadType" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
-		<attribute ref="xml:lang"/>
+		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
+		<attribute ref="xml:lang" use="optional"/>
 	</complexType>
 	<complexType name="ServiceInformationTableType">
 		<sequence>
 			<element name="ServiceInformation" type="tva:ServiceInformationType" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
-		<attribute ref="xml:lang"/>
+		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
+		<attribute ref="xml:lang" use="optional"/>
 	</complexType>
 	<annotation>
 		<documentation xml:lang="en">Section 6.3.9 Rights and Usage restriction Information</documentation>
@@ -1170,8 +1165,8 @@
 		<sequence>
 			<element name="RightsStatement" type="tva:RightsStatementType" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
-		<attribute ref="xml:lang"/>
+		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
+		<attribute ref="xml:lang" use="optional"/>
 	</complexType>
 	<complexType name="RightsStatementType">
 		<sequence>
@@ -1180,7 +1175,7 @@
 				<complexType>
 					<simpleContent>
 						<extension base="anyURI">
-							<attribute ref="xml:lang"/>
+							<attribute ref="xml:lang" use="optional"/>
 						</extension>
 					</simpleContent>
 				</complexType>
@@ -1211,7 +1206,7 @@
 		</sequence>
 		<attribute name="programId" type="tva:CRIDType"/>
 		<attribute name="segmentRefList" type="tva:TVAIDRefsType"/>
-		<attribute name="InstanceMetadataIdRef" type="tva:InstanceMetadataIdType"/>
+		<attribute name="InstanceMetadataIdRef" type="tva:InstanceMetadataIdType" use="optional"/>
 	</complexType>
 	<complexType name="UsageRestrictionType">
 		<sequence>
@@ -1275,7 +1270,7 @@
 				</complexType>
 			</element>
 		</sequence>
-		<attribute name="deviceid" type="anyURI"/>
+		<attribute name="deviceid" type="anyURI" use="optional"/>
 	</complexType>
 	<annotation>
 		<documentation xml:lang="en">Section 6.5 CONSUMER METADATA (mostly imported from MPEG-7; see
@@ -1289,7 +1284,7 @@
 					<element name="RelatedMaterial" type="tva:RelatedMaterialType" minOccurs="0" maxOccurs="unbounded"/>
 					<element name="AdditionalInformation" type="mpeg7:TextualType" minOccurs="0" maxOccurs="unbounded"/>
 				</sequence>
-				<attribute name="nameType">
+				<attribute name="nameType" use="optional">
 					<simpleType>
 						<restriction base="string">
 							<enumeration value="birthName"/>
@@ -1306,7 +1301,7 @@
 			<extension base="tva:TVAPersonNameType">
 				<attribute name="personNameId" type="tva:TVAIDType" use="required"/>
 				<attributeGroup ref="tva:fragmentIdentification"/>
-				<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
+				<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
 			</extension>
 		</complexContent>
 	</complexType>
@@ -1315,7 +1310,7 @@
 			<extension base="mpeg7:TextualType">
 				<attribute name="organizationNameId" type="tva:TVAIDType" use="required"/>
 				<attributeGroup ref="tva:fragmentIdentification"/>
-				<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
+				<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
 			</extension>
 		</simpleContent>
 	</complexType>
@@ -1326,16 +1321,16 @@
 				<element name="OrganizationName" type="tva:OrganizationNameType"/>
 			</choice>
 		</sequence>
-		<attribute name="copyrightNotice" type="string"/>
-		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
-		<attribute ref="xml:lang"/>
+		<attribute name="copyrightNotice" type="string" use="optional"/>
+		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
+		<attribute ref="xml:lang" use="optional"/>
 	</complexType>
 	<complexType name="PurchaseInformationType">
 		<complexContent>
 			<extension base="tva:PurchaseItemType">
 				<attribute name="purchaseId" type="tva:TVAIDType" use="required"/>
 				<attributeGroup ref="tva:fragmentIdentification"/>
-				<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
+				<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
 			</extension>
 		</complexContent>
 	</complexType>
@@ -1343,8 +1338,8 @@
 		<sequence>
 			<element name="PurchaseInformation" type="tva:PurchaseInformationType" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
-		<attribute ref="xml:lang"/>
+		<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
+		<attribute ref="xml:lang" use="optional"/>
 	</complexType>
 	<element name="TVAContentLinks">
 		<complexType>
@@ -1361,6 +1356,8 @@
 			<element name="Publisher" type="mpeg7:TextualType" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="RightsOwner" type="mpeg7:TextualType" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="CopyrightNotice" type="mpeg7:TextualType" minOccurs="0" maxOccurs="unbounded"/>
+			<!--element name="CopyrightNotice" type="tva:CopyrightNoticeType" minOccurs="0"
+				maxOccurs="unbounded"/-->
 		</sequence>
 		<attribute name="originID" type="tva:TVAIDType" use="required"/>
 		<attributeGroup ref="tva:fragmentIdentification"/>
@@ -1369,7 +1366,7 @@
 		<sequence>
 			<element name="MetadataOriginationInformation" type="tva:MetadataOriginationInformationType" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-		<attribute ref="xml:lang"/>
+		<attribute ref="xml:lang" use="optional"/>
 	</complexType>
 	<complexType name="UserDescriptionType">
 		<sequence>
@@ -1384,7 +1381,7 @@
 					<element name="UserIdentifier" type="mpeg7:UserIdentifierType" minOccurs="0"/>
 					<element name="UserActionHistory" type="tva:UserActionHistoryType" maxOccurs="unbounded"/>
 				</sequence>
-				<attribute name="allowCollection" type="mpeg7:userChoiceType" default="false"/>
+				<attribute name="allowCollection" type="mpeg7:userChoiceType" use="optional" default="false"/>
 			</extension>
 		</complexContent>
 	</complexType>
@@ -1395,7 +1392,7 @@
 					<element name="ObservationPeriod" type="mpeg7:TimeType" minOccurs="0" maxOccurs="unbounded"/>
 					<element name="UserActionList" type="tva:UserActionListType" maxOccurs="unbounded"/>
 				</sequence>
-				<attribute name="protected" type="mpeg7:userChoiceType" default="true"/>
+				<attribute name="protected" type="mpeg7:userChoiceType" use="optional" default="true"/>
 			</extension>
 		</complexContent>
 	</complexType>
@@ -1406,8 +1403,8 @@
 					<element name="ActionType" type="mpeg7:TermUseType"/>
 					<element name="UserAction" type="tva:UserActionType" minOccurs="0" maxOccurs="unbounded"/>
 				</sequence>
-				<attribute name="numOfInstances" type="nonNegativeInteger"/>
-				<attribute name="totalDuration" type="mpeg7:durationType"/>
+				<attribute name="numOfInstances" type="nonNegativeInteger" use="optional"/>
+				<attribute name="totalDuration" type="mpeg7:durationType" use="optional"/>
 			</extension>
 		</complexContent>
 	</complexType>
@@ -1415,7 +1412,7 @@
 		<complexContent>
 			<extension base="mpeg7:ClassificationSchemeAliasType">
 				<attributeGroup ref="tva:fragmentIdentification"/>
-				<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
+				<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
 			</extension>
 		</complexContent>
 	</complexType>
@@ -1427,7 +1424,7 @@
 						<complexType>
 							<simpleContent>
 								<extension base="mpeg7:TextualType">
-									<attribute name="preferred" type="boolean"/>
+									<attribute name="preferred" type="boolean" use="optional"/>
 								</extension>
 							</simpleContent>
 						</complexType>
@@ -1439,7 +1436,7 @@
 								<attribute name="href" type="mpeg7:termReferenceType" use="required"/>
 							</complexType>
 						</element>
-						<element name="MappingTerm" type="tva:MappingTermType" minOccurs="0" maxOccurs="unbounded"/>
+						<element name="mappingTerm" type="tva:MappingTermType" minOccurs="0" maxOccurs="unbounded"/>
 					</choice>
 				</sequence>
 				<attribute name="termID" type="NMTOKEN"/>
@@ -1465,7 +1462,7 @@
 						<complexType>
 							<complexContent>
 								<extension base="tva:TVATermDefinitionType">
-									<attribute name="relation" type="mpeg7:termRelationQualifierType" default="NT"/>
+									<attribute name="relation" type="mpeg7:termRelationQualifierType" use="optional" default="NT"/>
 								</extension>
 							</complexContent>
 						</complexType>
@@ -1481,8 +1478,8 @@
 					<element name="Term" type="tva:TVATermDefinitionType" maxOccurs="unbounded"/>
 				</sequence>
 				<attributeGroup ref="tva:fragmentIdentification"/>
-				<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType"/>
-				<attribute ref="xml:lang"/>
+				<attribute name="metadataOriginIDRef" type="tva:TVAIDRefType" use="optional"/>
+				<attribute ref="xml:lang" use="optional"/>
 			</extension>
 		</complexContent>
 	</complexType>
@@ -1491,7 +1488,7 @@
 			<element name="CSAlias" type="tva:CSAliasType" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="ClassificationScheme" type="tva:TVAClassificationSchemeType" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
-		<attribute ref="xml:lang"/>
+		<attribute ref="xml:lang" use="optional"/>
 	</complexType>
 	<complexType name="ProgramDescriptionType">
 		<sequence>

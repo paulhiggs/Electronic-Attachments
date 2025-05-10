@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TVAMain xmlns="urn:tva:metadata:2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mpeg7="urn:tva:mpeg7:2008" xml:lang="en" xsi:schemaLocation="urn:tva:metadata:2019 ../tva_metadata_3-1.xsd">
+<TVAMain xmlns="urn:tva:metadata:2023" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:lang="en" xsi:schemaLocation="urn:tva:metadata:2023 ../tva_metadata_3-1.xsd">
 	<ProgramDescription>
 		<GroupInformationTable>
 			<GroupInformation groupId="crid://dvb.org/metadata/collections/boxsets/categories" ordered="true" numOfItems="2">

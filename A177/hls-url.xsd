@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" 
    targetNamespace="vnd:apple:mpegurl"
-   xmlns:dvbisd="urn:dvb:metadata:servicediscovery:2022b"
+   xmlns:dvbisd="urn:dvb:metadata:servicediscovery:2023"
    elementFormDefault="qualified" attributeFormDefault="unqualified">
- <import namespace="urn:dvb:metadata:servicediscovery:2022b"
-    schemaLocation="dvbi_v4.0.xsd"/>
+ <import namespace="urn:dvb:metadata:servicediscovery:2023"
+    schemaLocation="dvbi_v5.0.xsd"/>
  <complexType name="m3u8RefType">
   <complexContent>
    <extension base="dvbisd:ExtensionBaseType">
@@ -15,3 +15,4 @@
   </complexContent>
  </complexType>
 </schema>
+

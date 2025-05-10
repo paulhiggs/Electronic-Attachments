@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Playlist xmlns="urn:dvb:metadata:servicediscovery:2022b" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicediscovery:2022b ..\dvbi_v4.0.xsd">
+<Playlist xmlns="urn:dvb:metadata:servicediscovery:2023" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicediscovery:2023 ..\dvbi_v5.0.xsd">
 	<PlaylistEntry>https://www.broadcaster.com/mpd/my_first_clip.mpd</PlaylistEntry>
 	<PlaylistEntry>https://www.broadcaster.com/mpd/my_second_clip.mpd</PlaylistEntry>
 	<PlaylistEntry>https://www.broadcaster.com/mpd/my_third_clip.mpd</PlaylistEntry>

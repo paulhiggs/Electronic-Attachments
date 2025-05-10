@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ServiceList xmlns="urn:dvb:metadata:servicediscovery:2022b" version="1" xml:lang="en" xmlns:tva="urn:tva:metadata:2019" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicediscovery:2022b ../dvbi_v4.0.xsd">
-	<Name xml:lang="en">Content Guide Source exmaple</Name>
+<ServiceList xmlns="urn:dvb:metadata:servicediscovery:2023" version="1" xml:lang="en" xmlns:tva="urn:tva:metadata:2023" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicediscovery:2023 ../dvbi_v5.0.xsd">
+	<Name xml:lang="en">Content Guide Source example</Name>
 	<ProviderName xml:lang="en">Content Guide Source</ProviderName>
 	<ContentGuideSourceList>
 		<ContentGuideSource CGSID="cgs-dvbi-01">
 			<Name xml:lang="en">A-Z Content Guide</Name>
 			<ProviderName xml:lang="en">A-Z Metadata</ProviderName>
 			<RelatedMaterial>
-				<HowRelated href="urn:dvb:metadata:cs:HowRelatedCS:2021:1002.1"/>
-				<MediaLocator contentLanguage="en">
+				<tva:HowRelated href="urn:dvb:metadata:cs:HowRelatedCS:2021:1002.1"/>
+				<tva:MediaLocator contentLanguage="en">
 					<tva:MediaUri contentType="image/png">
 						https://cgs.az.metadata/static/logo.png
 					</tva:MediaUri>
-				</MediaLocator>
-				<MediaLocator contentLanguage="fr">
+				</tva:MediaLocator>
+				<tva:MediaLocator contentLanguage="fr">
 					<tva:MediaUri contentType="image/png">
 						https://cgs.az.metadata/static/logo_fr.png
 					</tva:MediaUri>
-				</MediaLocator>
+				</tva:MediaLocator>
 			</RelatedMaterial>
 			<ScheduleInfoEndpoint contentType="application/xml">
 				<URI>https://cgs.az.metadata/schedule</URI>

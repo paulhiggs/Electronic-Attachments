@@ -44,6 +44,12 @@
 				A graphical icon that can be used to visually identify a service.
 			</Definition>
 		</Term>
+		<Term termID="1001.3">
+			<Name xml:lang="en">Service Banner</Name>
+			<Definition xml:lang="en">
+				A large format graphical element that depicts a scene or theme for the service.
+			</Definition>
+		</Term>
 	</Term>
 	<Term termID="1002">
 		<Name xml:lang="en">Content Guide Material</Name>

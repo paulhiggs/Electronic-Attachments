@@ -36,8 +36,8 @@
 			<File FilePath="tva_metadata_3-1.xsd" HomeFolder="Yes"/>
 			<File FilePath="tva_mpeg7.xsd" HomeFolder="Yes"/>
 		</Folder>
-		<File FilePath="dvbi_service_list_discovery_v1.4.xsd" HomeFolder="Yes"/>
-		<File FilePath="dvbi_v4.0.xsd" HomeFolder="Yes"/>
+		<File FilePath="dvbi_service_list_discovery_v1.5.xsd" HomeFolder="Yes"/>
+		<File FilePath="dvbi_v5.0.xsd" HomeFolder="Yes"/>
 	</Folder>
 	<Folder FolderName="Entities" ExtStr="ent"/>
 </Project>
