@@ -13,8 +13,9 @@
 	<!ENTITY Hex16 "&HexDigit;{1,4}">
 	<!ENTITY Hex8 "&HexDigit;{1,2}">
 ]>
-<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:dvbisd="urn:dvb:metadata:servicediscovery:2023" xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns:tva="urn:tva:metadata:2023" targetNamespace="urn:dvb:metadata:servicediscovery:2023" elementFormDefault="qualified" attributeFormDefault="unqualified">
-	<import namespace="urn:tva:metadata:2023" schemaLocation="tva_metadata_3-1.xsd"/>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:dvbisd="urn:dvb:metadata:servicediscovery:2024" xmlns:dvbi-types="urn:dvb:metadata:servicediscovery-types:2023" xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns:tva="urn:tva:metadata:2024" targetNamespace="urn:dvb:metadata:servicediscovery:2024" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<import namespace="urn:dvb:metadata:servicediscovery-types:2023" schemaLocation="dvbi_types_v1.0.xsd"/>
+	<import namespace="urn:tva:metadata:2024" schemaLocation="tva_metadata_3-1.xsd"/>
 	<import namespace="urn:tva:mpeg7:2008" schemaLocation="tva_mpeg7.xsd"/>
 	<import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="xml.xsd"/>
 	<element name="ServiceList" type="dvbisd:ServiceListType"/>
@@ -39,6 +40,7 @@
 			<element name="SubscriptionPackageList" type="dvbisd:SubscriptionPackageListType" minOccurs="0"/>
 			<any namespace="##other" processContents="lax" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
+		<attribute name="id" type="dvbi-types:ServiceIdentifierType" use="required"/>
 		<attribute name="version" type="positiveInteger" use="required"/>
 		<attribute name="responseStatus" use="optional">
 			<simpleType>
@@ -57,7 +59,7 @@
 	</complexType>
 	<complexType name="ContentGuideSourceListType">
 		<sequence>
-			<element name="ContentGuideSource" type="dvbisd:ContentGuideSourceType" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="ContentGuideSource" type="dvbisd:ContentGuideSourceType" maxOccurs="unbounded"/>
 		</sequence>
 		<attribute ref="xml:lang"/>
 	</complexType>
@@ -65,12 +67,11 @@
 		<sequence>
 			<element name="Name" type="mpeg7:TextualType" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="ProviderName" type="mpeg7:TextualType" maxOccurs="unbounded"/>
-			<element name="LanguageList" type="dvbisd:LanguageListType" minOccurs="0"/>
 			<element name="RelatedMaterial" type="tva:RelatedMaterialType" minOccurs="0" maxOccurs="unbounded"/>
-			<element name="ScheduleInfoEndpoint" type="dvbisd:ExtendedURIType"/>
-			<element name="ProgramInfoEndpoint" type="dvbisd:ExtendedURIType" minOccurs="0"/>
-			<element name="GroupInfoEndpoint" type="dvbisd:ExtendedURIType" minOccurs="0"/>
-			<element name="MoreEpisodesEndpoint" type="dvbisd:ExtendedURIType" minOccurs="0"/>
+			<element name="ScheduleInfoEndpoint" type="dvbi-types:ExtendedURIType"/>
+			<element name="ProgramInfoEndpoint" type="dvbi-types:ExtendedURIType" minOccurs="0"/>
+			<element name="GroupInfoEndpoint" type="dvbi-types:ExtendedURIPathType" minOccurs="0"/>
+			<element name="MoreEpisodesEndpoint" type="dvbi-types:ExtendedURIType" minOccurs="0"/>
 		</sequence>
 		<attribute name="CGSID" type="dvbisd:ContentGuideProviderIdType" use="required"/>
 		<attribute name="minimumMetadataUpdatePeriod" type="duration"/>
@@ -89,7 +90,7 @@
 	</complexType>
 	<complexType name="ServiceType">
 		<sequence>
-			<element name="UniqueIdentifier" type="dvbisd:ServiceIdentifierType"/>
+			<element name="UniqueIdentifier" type="dvbi-types:ServiceIdentifierType"/>
 			<element name="ServiceInstance" type="dvbisd:ServiceInstanceType" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="TargetRegion" type="dvbisd:RegionIdRefType" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="ServiceName" type="mpeg7:TextualType" maxOccurs="unbounded"/>
@@ -104,7 +105,7 @@
 				<element name="ContentGuideSourceRef" type="dvbisd:ContentGuideProviderRefIdType"/>
 			</choice>
 			<element name="ContentGuideServiceRef" type="string" minOccurs="0"/>
-			<element name="AdditionalServiceParameters" type="dvbisd:ExtensionBaseType" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="AdditionalServiceParameters" type="dvbi-types:ExtensionBaseType" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="NVOD" type="dvbisd:NVODType" minOccurs="0"/>
 			<element name="ProminenceList" type="dvbisd:ServiceProminenceListType" minOccurs="0"/>
 			<element name="ParentalRating" type="dvbisd:ParentalRatingType" minOccurs="0"/>
@@ -123,7 +124,14 @@
 			<element name="Availability" type="dvbisd:ServiceAvailabilityType" minOccurs="0"/>
 			<element name="SubscriptionPackage" type="dvbisd:SubscriptionPackageType" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="FTAContentManagement" type="dvbisd:FTAContentManagementType" minOccurs="0"/>
-			<element name="SourceType" type="anyURI" minOccurs="0"/>
+			<element name="SourceType" type="anyURI" minOccurs="0">
+				<annotation>
+					<documentation>
+					The use of this element is deprecated in this version of the specification, in favour of the client application making 
+					a delivery system determination based on the specified delivery parameters.
+				</documentation>
+				</annotation>
+			</element>
 			<element name="AltServiceName" type="string" minOccurs="0" maxOccurs="unbounded"/>
 			<choice minOccurs="0">
 				<sequence>
@@ -141,7 +149,8 @@
 					<element name="DASHDeliveryParameters" type="dvbisd:DASHDeliveryParametersType"/>
 					<element name="MulticastTSDeliveryParameters" type="dvbisd:MulticastTSDeliveryParametersType" minOccurs="0"/>
 				</sequence>
-				<element name="OtherDeliveryParameters" type="dvbisd:ExtensionBaseType"/>
+				<element name="OtherDeliveryParameters" type="dvbi-types:ExtensionBaseType"/>
+				<element name="IdentifierBasedDeliveryParameters" type="dvbisd:IdentifierBasedDeliveryParametersType"/>
 			</choice>
 		</sequence>
 		<attribute name="priority" type="nonNegativeInteger" default="0"/>
@@ -229,14 +238,18 @@
 	</complexType>
 	<complexType name="DVBTDeliveryParametersType">
 		<sequence>
-			<element name="DVBTriplet" type="dvbisd:DVBTripletType"/>
-			<element name="TargetCountry" type="tva:ISO-3166-Code"/>
+			<element name="DVBTriplet" type="dvbi-types:DVBTripletType"/>
+			<element name="TargetCountry" type="tva:ISO-3166-Code" minOccurs="0">
+				<annotation>
+					<documentation>The use of this element is deprecated.</documentation>
+				</annotation>
+			</element>
 		</sequence>
 	</complexType>
 	<complexType name="DVBSDeliveryParametersType">
 		<sequence>
-			<element name="DVBTriplet" type="dvbisd:DVBTripletType"/>
-			<element name="OrbitalPosition" type="dvbisd:LongitudeType" minOccurs="0"/>
+			<element name="DVBTriplet" type="dvbi-types:DVBTripletType"/>
+			<element name="OrbitalPosition" type="dvbi-types:LongitudeType" minOccurs="0"/>
 			<sequence minOccurs="0">
 				<element name="Frequency" type="positiveInteger"/>
 				<element name="Polarization">
@@ -361,35 +374,43 @@
 	</complexType>
 	<complexType name="DVBCDeliveryParametersType">
 		<sequence>
-			<element name="DVBTriplet" type="dvbisd:DVBTripletType" minOccurs="0"/>
-			<element name="TargetCountry" type="tva:ISO-3166-Code"/>
-			<element name="NetworkID" type="dvbisd:NetworkIdType"/>
+			<element name="DVBTriplet" type="dvbi-types:DVBTripletType" minOccurs="0"/>
+			<element name="TargetCountry" type="tva:ISO-3166-Code" minOccurs="0">
+				<annotation>
+					<documentation>The use of this element is deprecated.</documentation>
+				</annotation>
+			</element>
+			<element name="NetworkID" type="dvbi-types:NetworkIdType"/>
 		</sequence>
 	</complexType>
 	<complexType name="RTSPDeliveryParametersType">
 		<sequence>
-			<element name="DVBTriplet" type="dvbisd:DVBTripletType"/>
+			<element name="DVBTriplet" type="dvbi-types:DVBTripletType"/>
 			<element name="RTSPURL" type="dvbisd:RTSPURLType"/>
 			<element name="MinimumBitRate" type="unsignedInt" minOccurs="0"/>
 		</sequence>
 	</complexType>
 	<complexType name="MulticastTSDeliveryParametersType">
 		<sequence>
-			<element name="DVBTriplet" type="dvbisd:DVBTripletType" minOccurs="0"/>
+			<element name="DVBTriplet" type="dvbi-types:DVBTripletType" minOccurs="0"/>
 			<element name="IPMulticastAddress" type="dvbisd:McastType"/>
 			<element name="MinimumBitRate" type="unsignedInt" minOccurs="0"/>
 		</sequence>
 	</complexType>
 	<complexType name="DASHDeliveryParametersType">
 		<sequence>
-			<element name="UriBasedLocation" type="dvbisd:ExtendedURIType"/>
+			<element name="UriBasedLocation" type="dvbi-types:ExtendedURIType"/>
 			<element name="MinimumBitRate" type="unsignedInt" minOccurs="0"/>
-			<element name="Extension" type="dvbisd:ExtensionBaseType" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="Extension" type="dvbi-types:ExtensionBaseType" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
 	</complexType>
-	<simpleType name="NetworkIdType">
-		<restriction base="unsignedShort"/>
-	</simpleType>
+	<complexType name="IdentifierBasedDeliveryParametersType">
+		<simpleContent>
+			<extension base="anyURI">
+				<attribute name="contentType" type="mpeg7:mimeType"/>
+			</extension>
+		</simpleContent>
+	</complexType>
 	<complexType name="ServiceAvailabilityType">
 		<sequence>
 			<element name="Period" maxOccurs="unbounded">
@@ -509,26 +530,11 @@
 	</complexType>
 	<complexType name="CoordinatesType">
 		<sequence>
-			<element name="Latitude" type="dvbisd:LatitudeType"/>
-			<element name="Longitude" type="dvbisd:LongitudeType"/>
-			<element name="Radius" type="dvbisd:RadiusType"/>
+			<element name="Latitude" type="dvbi-types:LatitudeType"/>
+			<element name="Longitude" type="dvbi-types:LongitudeType"/>
+			<element name="Radius" type="dvbi-types:RadiusType"/>
 		</sequence>
 	</complexType>
-	<simpleType name="LatitudeType">
-		<restriction base="double">
-			<minInclusive value="-90.0"/>
-			<maxInclusive value="90.0"/>
-		</restriction>
-	</simpleType>
-	<simpleType name="LongitudeType">
-		<restriction base="double">
-			<minInclusive value="-180.0"/>
-			<maxInclusive value="180.0"/>
-		</restriction>
-	</simpleType>
-	<simpleType name="RadiusType">
-		<restriction base="positiveInteger"/>
-	</simpleType>
 	<complexType name="LCNTableListType">
 		<sequence>
 			<element name="LCNTable" type="dvbisd:LCNTableType" minOccurs="0" maxOccurs="unbounded"/>
@@ -537,19 +543,45 @@
 	<complexType name="LCNTableType">
 		<sequence>
 			<element name="TargetRegion" type="dvbisd:RegionIdRefType" minOccurs="0" maxOccurs="unbounded"/>
-			<element name="SubscriptionPackage" type="dvbisd:SubscriptionPackageType" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="SubscriptionPackage" type="dvbisd:SubscriptionPackageType" minOccurs="0" maxOccurs="unbounded">
+				<annotation><documentation>The use of this element is deprecated.</documentation></annotation>
+			</element>
 			<element name="LCN" type="dvbisd:LCNTableEntryType" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="LCNRange" type="dvbisd:LCNRangeType" minOccurs="0" maxOccurs="unbounded"/>
 		</sequence>
+		<attribute name="preserveBroadcastLCN" type="boolean" default="false"/>
 	</complexType>
 	<complexType name="LCNTableEntryType">
 		<attribute name="channelNumber" type="positiveInteger" use="required"/>
-		<attribute name="serviceRef" type="dvbisd:ServiceIdentifierType" use="required"/>
+		<attribute name="serviceRef" type="dvbi-types:ServiceIdentifierType" use="required"/>
 		<attribute name="selectable" type="boolean" default="true"/>
 		<attribute name="visible" type="boolean" default="true"/>
 	</complexType>
-	<simpleType name="ServiceIdentifierType">
-		<restriction base="anyURI"/>
-	</simpleType>
+	<complexType name="LCNRangeType">
+		<attribute name="start" type="positiveInteger" use="required"/>
+		<attribute name="end" type="positiveInteger"/>
+		<attribute name="priority" type="nonNegativeInteger" default="0"/>
+		<attribute name="fillMethod" default="startFromHighest">
+			<simpleType>
+				<restriction base="string">
+					<enumeration value="fillGaps"/>
+					<enumeration value="startFromHighest"/>
+				</restriction>
+			</simpleType>
+		</attribute>
+		<attribute name="serviceOrigin" default="dvbi">
+			<simpleType>
+				<restriction base="string">
+					<enumeration value="any"/>
+					<enumeration value="dvbi"/>
+					<enumeration value="targetBroadcast"/>
+					<enumeration value="otherBroadcast"/>
+				</restriction>
+			</simpleType>
+		</attribute>
+		<attribute name="serviceType" type="mpeg7:termReferenceType"/>
+		<attribute name="serviceGenre" type="mpeg7:termReferenceType"/>
+	</complexType>
 	<complexType name="SubscriptionPackageType">
 		<simpleContent>
 			<extension base="mpeg7:TextualType"/>
@@ -566,15 +598,6 @@
 			<element name="PlaylistEntry" type="anyURI" maxOccurs="unbounded"/>
 		</sequence>
 	</complexType>
-	<complexType name="ExtensionBaseType" abstract="true">
-		<attribute name="extensionName" use="required">
-			<simpleType>
-				<restriction base="string">
-					<pattern value="[A-Za-z0-9][A-Za-z0-9:\-/\.]*[A-Za-z0-9]"/>
-				</restriction>
-			</simpleType>
-		</attribute>
-	</complexType>
 	<complexType name="NVODType">
 		<attribute name="mode" use="required">
 			<simpleType>
@@ -584,7 +607,7 @@
 				</restriction>
 			</simpleType>
 		</attribute>
-		<attribute name="reference" type="dvbisd:ServiceIdentifierType"/>
+		<attribute name="reference" type="dvbi-types:ServiceIdentifierType"/>
 		<attribute name="offset" default="PT0S">
 			<simpleType>
 				<restriction base="duration">
@@ -606,14 +629,6 @@
 		</complexContent>
 	</complexType>
 	<!-- -->
-	<!--  data types adapted from SDNS v1.4 -->
-	<!-- -->
-	<complexType name="DVBTripletType">
-		<attribute name="origNetId" type="dvbisd:OrigNetId" use="optional"/>
-		<attribute name="tsId" type="dvbisd:TSId" use="optional"/>
-		<attribute name="serviceId" type="dvbisd:ServiceId" use="required"/>
-	</complexType>
-	<!-- -->
 	<!--  items adapted from OSDT v1.2.1 -->
 	<!-- -->
 	<complexType name="ContentAttributesType">
@@ -621,13 +636,12 @@
 			<element name="AudioAttributes" type="tva:AudioAttributesType" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="AudioConformancePoint" type="tva:ControlledTermType" minOccurs="0" maxOccurs="unbounded">
 				<annotation>
-					<documentation>The use of this element is deprecated</documentation>
+					<documentation>The use of this element is deprecated.</documentation>
 				</annotation>
 			</element>
 			<element name="VideoAttributes" type="dvbisd:VideoAttributesType" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="VideoConformancePoint" type="tva:ControlledTermType" minOccurs="0"/>
-			<element name="CaptionLanguage" type="tva:CaptionLanguageType" minOccurs="0" maxOccurs="unbounded"/>
-			<element name="SignLanguage" type="tva:SignLanguageType" minOccurs="0" maxOccurs="unbounded"/>
+			<element name="AccessibilityAttributes" type="tva:AccessibilityAttributesType" minOccurs="0"/>
 		</sequence>
 	</complexType>
 	<!-- -->
@@ -759,24 +773,6 @@
 			<pattern value="rtsp://.*"/>
 		</restriction>
 	</simpleType>
-	<simpleType name="OrigNetId">
-		<annotation>
-			<documentation xml:lang="en">A unique identifier of a network. This is managed by DVB through ETSI</documentation>
-		</annotation>
-		<restriction base="unsignedShort"/>
-	</simpleType>
-	<simpleType name="TSId">
-		<annotation>
-			<documentation xml:lang="en">A number used to identify Transport Stream within an original_network.</documentation>
-		</annotation>
-		<restriction base="unsignedShort"/>
-	</simpleType>
-	<simpleType name="ServiceId">
-		<annotation>
-			<documentation xml:lang="en">A number used to identify a service within a Transport Stream.</documentation>
-		</annotation>
-		<restriction base="unsignedShort"/>
-	</simpleType>
 	<!-- -->
 	<!-- items copied from SDnS v2.1 -->
 	<!-- -->
@@ -809,13 +805,4 @@
 			                      (:(((:&Hex16;){1,7})|((:&Hex16;){0,5}:&IPv4Address;)|:)))(%.+)?\s*$/"/>
 		</restriction>
 	</simpleType>
-	<!-- -->
-	<!--  items copied from OSDT v1.2.1 -->
-	<!-- -->
-	<complexType name="ExtendedURIType">
-		<sequence>
-			<element name="URI" type="anyURI"/>
-		</sequence>
-		<attribute name="contentType" type="mpeg7:mimeType" use="required"/>
-	</complexType>
 </schema>

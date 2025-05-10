@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Example of response to query: https://csr.dvbservices.com/query?TargetCountry=IT&regulatorListFlag=true -->
-<ServiceListEntryPoints xml:lang="en" xmlns="urn:dvb:metadata:servicelistdiscovery:2023" xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns:dvbisd="urn:dvb:metadata:servicediscovery:2023" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicelistdiscovery:2023 ../dvbi_service_list_discovery_v1.5.xsd">
+<ServiceListEntryPoints xml:lang="en" xmlns="urn:dvb:metadata:servicelistdiscovery:2024" xmlns:dvbi-types="urn:dvb:metadata:servicediscovery-types:2023" xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicelistdiscovery:2024 ../dvbi_service_list_discovery_v1.6.xsd">
 	<ServiceListRegistryEntity regulatorFlag="true">
 		<Name>DVB Services Sàrl</Name>
 		<Address>
@@ -30,30 +30,32 @@
 			</ElectronicAddress>
 		</Provider>
 		<ServiceListOffering regulatorListFlag="true">
-			<ServiceListName>Italian Trusted Services</ServiceListName>
-			<ServiceListURI contentType="application/xml">
-				<dvbisd:URI>https://dvbi.italian-authority.it/trusted-services-dtt.xml</dvbisd:URI>
-			</ServiceListURI>
-			<Delivery>
-				<DASHDelivery/>
-				<DVBTDelivery required="true"/>
-			</Delivery>
-			<Language>it</Language>
-			<TargetCountry>ITA</TargetCountry>
+			<dvbi-types:ServiceListName>Italian Trusted Services</dvbi-types:ServiceListName>
+			<dvbi-types:ServiceListURI contentType="application/xml">
+				<dvbi-types:URI>https://dvbi.italian-authority.it/trusted-services-dtt.xml</dvbi-types:URI>
+			</dvbi-types:ServiceListURI>
+			<dvbi-types:Delivery>
+				<dvbi-types:DASHDelivery/>
+				<dvbi-types:DVBTDelivery required="true"/>
+			</dvbi-types:Delivery>
+			<dvbi-types:Language>it</dvbi-types:Language>
+			<dvbi-types:TargetCountry>ITA</dvbi-types:TargetCountry>
+			<dvbi-types:ServiceListId>tag:dvb.org,2023:example-italy-trust-dtt</dvbi-types:ServiceListId>
 		</ServiceListOffering>
 		<ServiceListOffering regulatorListFlag="true">
-			<ServiceListName>Italian Trusted Services</ServiceListName>
-			<ServiceListURI contentType="application/xml">
-				<dvbisd:URI>https://dvbi.italian-authority.it/trusted-services-dth.xml</dvbisd:URI>
-			</ServiceListURI>
-			<Delivery>
-				<DASHDelivery/>
-				<DVBSDelivery required="true">
-					<OrbitalPosition>13.7</OrbitalPosition>
-				</DVBSDelivery>
-			</Delivery>
-			<Language>it</Language>
-			<TargetCountry>ITA</TargetCountry>
+			<dvbi-types:ServiceListName>Italian Trusted Services</dvbi-types:ServiceListName>
+			<dvbi-types:ServiceListURI contentType="application/xml">
+				<dvbi-types:URI>https://dvbi.italian-authority.it/trusted-services-dth.xml</dvbi-types:URI>
+			</dvbi-types:ServiceListURI>
+			<dvbi-types:Delivery>
+				<dvbi-types:DASHDelivery/>
+				<dvbi-types:DVBSDelivery required="true">
+					<dvbi-types:OrbitalPosition>13.7</dvbi-types:OrbitalPosition>
+				</dvbi-types:DVBSDelivery>
+			</dvbi-types:Delivery>
+			<dvbi-types:Language>it</dvbi-types:Language>
+			<dvbi-types:TargetCountry>ITA</dvbi-types:TargetCountry>
+			<dvbi-types:ServiceListId>tag:dvb.org,2023:example-italy-trust-dth</dvbi-types:ServiceListId>
 		</ServiceListOffering>
 	</ProviderOffering>
 </ServiceListEntryPoints>

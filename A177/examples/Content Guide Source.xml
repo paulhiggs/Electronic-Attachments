@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ServiceList xmlns="urn:dvb:metadata:servicediscovery:2023" version="1" xml:lang="en" xmlns:tva="urn:tva:metadata:2023" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicediscovery:2023 ../dvbi_v5.0.xsd">
+<ServiceList xmlns="urn:dvb:metadata:servicediscovery:2024" version="1" xml:lang="en" id="tag:dvb.org,2023:example-cg-sample" xmlns:tva="urn:tva:metadata:2024" xmlns:dvbi-types="urn:dvb:metadata:servicediscovery-types:2023" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicediscovery:2024 ../dvbi_v6.0.xsd">
 	<Name xml:lang="en">Content Guide Source example</Name>
 	<ProviderName xml:lang="en">Content Guide Source</ProviderName>
 	<ContentGuideSourceList>
@@ -20,13 +20,13 @@
 				</tva:MediaLocator>
 			</RelatedMaterial>
 			<ScheduleInfoEndpoint contentType="application/xml">
-				<URI>https://cgs.az.metadata/schedule</URI>
+				<dvbi-types:URI>https://cgs.az.metadata/schedule</dvbi-types:URI>
 			</ScheduleInfoEndpoint>
 			<ProgramInfoEndpoint contentType="application/xml">
-				<URI>https://cgs.az.metadata/program</URI>
+				<dvbi-types:URI>https://cgs.az.metadata/program</dvbi-types:URI>
 			</ProgramInfoEndpoint>
 			<GroupInfoEndpoint contentType="application/xml">
-				<URI>https://cgs.az.metadata/group</URI>
+				<dvbi-types:URI>https://cgs.az.metadata/group/</dvbi-types:URI>
 			</GroupInfoEndpoint>
 		</ContentGuideSource>
 	</ContentGuideSourceList>

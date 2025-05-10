@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TVAMain xmlns="urn:tva:metadata:2023" xmlns:mpeg7="urn:tva:mpeg7:2008" xml:lang="en" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="urn:tva:metadata:2023 ../tva_metadata_3-1.xsd">
+<TVAMain xmlns="urn:tva:metadata:2024" xmlns:mpeg7="urn:tva:mpeg7:2008" xml:lang="en" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="urn:tva:metadata:2024 ../tva_metadata_3-1.xsd">
 	<ProgramDescription>
 		<ProgramInformationTable xml:lang="en">
 			<ProgramInformation programId="crid://mybroadcaster.co.uk/mdata/episode/b00jd8gp">
@@ -79,7 +79,6 @@
 				<InstanceDescription>
 					<Genre href="urn:fvc:metadata:cs:MediaAvailabilityCS:2014-07:media_available" type="other"/>
 					<Genre href="urn:fvc:metadata:cs:FEPGAvailabilityCS:2014-10:fepg_available" type="other"/>
-					<CaptionLanguage closed="true">qaa</CaptionLanguage>
 					<AVAttributes>
 						<AudioAttributes>
 							<MixType href="urn:mpeg:mpeg7:cs:AudioPresentationCS:2001:3"/>
@@ -92,6 +91,15 @@
 							<VerticalSize>1080</VerticalSize>
 							<AspectRatio>16:9</AspectRatio>
 						</VideoAttributes>
+						<AccessibilityAttributes>
+							<SubtitleAttributes>
+								<Carriage href="urn:tva:metadata:cs:SubtitleCarriageCS:2023:2"/>
+								<Coding href="urn:tva:metadata:cs:SubtitleCodingFormatCS:2023:3.2.2"/>
+								<Coding href="urn:tva:metadata:cs:SubtitleCodingFormatCS:2023:3.6.1.2"/>
+								<SubtitleLanguage>qaa</SubtitleLanguage>
+								<SuitableForTTS>false</SuitableForTTS>
+							</SubtitleAttributes>
+						</AccessibilityAttributes>
 					</AVAttributes>
 				</InstanceDescription>
 				<PublishedDuration>PT00H30M00S</PublishedDuration>

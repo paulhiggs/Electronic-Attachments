@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:dvbiait="urn:dvb:metadata:dvb:linkedapplication:xmlait:2023" xmlns:mhp="urn:dvb:mhp:2009" xmlns:mpeg7="urn:tva:mpeg7:2008" targetNamespace="urn:dvb:metadata:dvb:linkedapplication:xmlait:2023" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<import namespace="urn:dvb:mhp:2009" schemaLocation="xmlait/mis_xmlait.xsd"/>
+	<import namespace="urn:tva:mpeg7:2008" schemaLocation="xmlait/tva_mpeg7_2008.xsd"/>
+	<complexType name="DVBIApplicationDescriptor">
+		<complexContent>
+			<extension base="mhp:ApplicationDescriptor">
+				<sequence>
+					<element name="Description" type="mpeg7:TextualType" minOccurs="0"/>
+				</sequence>
+			</extension>
+		</complexContent>
+	</complexType>
+</schema>

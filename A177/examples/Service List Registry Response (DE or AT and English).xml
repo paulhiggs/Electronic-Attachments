@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Example of response to query: https://private-slr.com/query?TargetCountry%5B%5D=DEU&TargetCountry%5B%5D=AUT&Language=en -->
-<ServiceListEntryPoints xml:lang="en" xmlns="urn:dvb:metadata:servicelistdiscovery:2023" xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns:dvbisd="urn:dvb:metadata:servicediscovery:2023" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicelistdiscovery:2023 ../dvbi_service_list_discovery_v1.5.xsd">
+<ServiceListEntryPoints xml:lang="en" xmlns="urn:dvb:metadata:servicelistdiscovery:2024" xmlns:dvbisd="urn:dvb:metadata:servicediscovery:2024" xmlns:dvbi-types="urn:dvb:metadata:servicediscovery-types:2023" xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicelistdiscovery:2024 ../dvbi_service_list_discovery_v1.6.xsd">
 	<ServiceListRegistryEntity>
 		<Name>A Private Service List Registry</Name>
 		<ElectronicAddress>
@@ -23,31 +23,33 @@
 			</ElectronicAddress>
 		</Provider>
 		<ServiceListOffering>
-			<ServiceListName xml:lang="en">TV services from the world in English</ServiceListName>		
-			<ServiceListName xml:lang="de">Fernsehen aus ter Welt in Englisch</ServiceListName>
-			<ServiceListName xml:lang="fr">Télévision du monde en anglais</ServiceListName>
-			<ServiceListName xml:lang="it">TV del mondo in inglese</ServiceListName>
-			<ServiceListURI contentType="application/xml">
-				<dvbisd:URI>https://dvbi.TVfromTheWorld.com/engTVservices.xml</dvbisd:URI>
-			</ServiceListURI>
-			<Delivery>
-				<DASHDelivery required="true"/>
-			</Delivery>
-			<Language>en</Language>
+			<dvbi-types:ServiceListName xml:lang="en">TV services from the world in English</dvbi-types:ServiceListName>		
+			<dvbi-types:ServiceListName xml:lang="de">Fernsehen aus ter Welt in Englisch</dvbi-types:ServiceListName>
+			<dvbi-types:ServiceListName xml:lang="fr">Télévision du monde en anglais</dvbi-types:ServiceListName>
+			<dvbi-types:ServiceListName xml:lang="it">TV del mondo in inglese</dvbi-types:ServiceListName>
+			<dvbi-types:ServiceListURI contentType="application/xml">
+				<dvbi-types:URI>https://dvbi.TVfromTheWorld.com/engTVservices.xml</dvbi-types:URI>
+			</dvbi-types:ServiceListURI>
+			<dvbi-types:Delivery>
+				<dvbi-types:DASHDelivery required="true"/>
+			</dvbi-types:Delivery>
+			<dvbi-types:Language>en</dvbi-types:Language>
 			<!-- Assumption: if TargetCountry is not specified, the service list is assumed to be targeted to any country -->
+			<dvbi-types:ServiceListId>tag:dvb.org,2023:example-world-tv</dvbi-types:ServiceListId>
 		</ServiceListOffering>
 		<ServiceListOffering>
-			<ServiceListName xml:lang="de">TV aus Deutschland</ServiceListName>
-			<ServiceListName xml:lang="en">TV from Germany</ServiceListName>
-			<ServiceListURI contentType="application/xml">
-				<dvbisd:URI>https://dvbi.TVfromTheWorld.com/TVservices_Germany.xml</dvbisd:URI>
-			</ServiceListURI>
-			<Delivery>
-				<DASHDelivery required="true"/>
-			</Delivery>
-			<Language>de</Language>
-			<Language>en</Language>
-			<TargetCountry>DEU</TargetCountry>
+			<dvbi-types:ServiceListName xml:lang="de">TV aus Deutschland</dvbi-types:ServiceListName>
+			<dvbi-types:ServiceListName xml:lang="en">TV from Germany</dvbi-types:ServiceListName>
+			<dvbi-types:ServiceListURI contentType="application/xml">
+				<dvbi-types:URI>https://dvbi.TVfromTheWorld.com/TVservices_Germany.xml</dvbi-types:URI>
+			</dvbi-types:ServiceListURI>
+			<dvbi-types:Delivery>
+				<dvbi-types:DASHDelivery required="true"/>
+			</dvbi-types:Delivery>
+			<dvbi-types:Language>de</dvbi-types:Language>
+			<dvbi-types:Language>en</dvbi-types:Language>
+			<dvbi-types:TargetCountry>DEU</dvbi-types:TargetCountry>
+			<dvbi-types:ServiceListId>tag:dvb.org,2023:example-germany-tv</dvbi-types:ServiceListId>
 		</ServiceListOffering>
 	</ProviderOffering>
 	<ProviderOffering>
@@ -65,29 +67,30 @@
 			</ElectronicAddress>
 		</Provider>
 		<ServiceListOffering>
-			<ServiceListName>Documentaries</ServiceListName>
-			<ServiceListURI contentType="application/xml">
-				<dvbisd:URI>
+			<dvbi-types:ServiceListName>Documentaries</dvbi-types:ServiceListName>
+			<dvbi-types:ServiceListURI contentType="application/xml">
+				<dvbi-types:URI>
 					https://www.british-service-list-provider.co.uk/documentaries.xml
-				</dvbisd:URI>
-			</ServiceListURI>
-			<ServiceListURI contentType="application/xml">
-				<dvbisd:URI>
+				</dvbi-types:URI>
+			</dvbi-types:ServiceListURI>
+			<dvbi-types:ServiceListURI contentType="application/xml">
+				<dvbi-types:URI>
 					https://alt.british-service-list-provider.co.uk/documentaries.xml
-				</dvbisd:URI>
-			</ServiceListURI>
-			<Delivery>
-				<DASHDelivery required="true" minimumBitRate="1572842"/>
-				<ApplicationDelivery required="true">
-					<ApplicationType contentType="application/vnd.dvb.ait+xml" xmlAitApplicationType="application/vnd.hbbtv.xhtml+xml"/>
-				</ApplicationDelivery>
-			</Delivery>
-			<Language>en</Language>
-			<TargetCountry>GBR</TargetCountry>
-			<TargetCountry>FRA</TargetCountry>
-			<TargetCountry>ITA</TargetCountry>
-			<TargetCountry>DEU</TargetCountry>
-			<TargetCountry>AUT</TargetCountry>
+				</dvbi-types:URI>
+			</dvbi-types:ServiceListURI>
+			<dvbi-types:Delivery>
+				<dvbi-types:DASHDelivery required="true" minimumBitRate="1572842"/>
+				<dvbi-types:ApplicationDelivery required="true">
+					<dvbi-types:ApplicationType contentType="application/vnd.dvb.ait+xml" xmlAitApplicationType="application/vnd.hbbtv.xhtml+xml"/>
+				</dvbi-types:ApplicationDelivery>
+			</dvbi-types:Delivery>
+			<dvbi-types:Language>en</dvbi-types:Language>
+			<dvbi-types:TargetCountry>GBR</dvbi-types:TargetCountry>
+			<dvbi-types:TargetCountry>FRA</dvbi-types:TargetCountry>
+			<dvbi-types:TargetCountry>ITA</dvbi-types:TargetCountry>
+			<dvbi-types:TargetCountry>DEU</dvbi-types:TargetCountry>
+			<dvbi-types:TargetCountry>AUT</dvbi-types:TargetCountry>
+			<dvbi-types:ServiceListId>tag:dvb.org,2023:example-uk-docu</dvbi-types:ServiceListId>
 		</ServiceListOffering>
 	</ProviderOffering>
 </ServiceListEntryPoints>

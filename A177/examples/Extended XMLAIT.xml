@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mhp:ServiceDiscovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:dvb:metadata:dvb:linkedapplication:xmlait:2023" xmlns:dvbixmlait="urn:dvb:metadata:dvb:linkedapplication:xmlait:2023" xmlns:mhp="urn:dvb:mhp:2009"  xsi:schemaLocation="urn:dvb:metadata:dvb:linkedapplication:xmlait:2023 ../dvbi_xmlait_extension_v1.0.xsd">
+  <mhp:ApplicationDiscovery DomainName="example.com">
+    <mhp:ApplicationList>
+      <mhp:Application>
+        <mhp:appName Language="eng">Whizzo Play Along Quiz</mhp:appName>
+        <mhp:applicationIdentifier>
+          <mhp:orgId>123</mhp:orgId>
+          <mhp:appId>456</mhp:appId>
+        </mhp:applicationIdentifier>
+        <mhp:applicationDescriptor xsi:type="dvbixmlait:DVBIApplicationDescriptor">
+          <mhp:type>
+            <mhp:OtherApp>application/vnd.hbbtv.xhtml+xml</mhp:OtherApp>
+          </mhp:type>
+          <mhp:controlCode>AUTOSTART</mhp:controlCode>
+          <mhp:visibility>VISIBLE_ALL</mhp:visibility>
+          <mhp:serviceBound>false</mhp:serviceBound>
+          <mhp:priority>1</mhp:priority>
+          <mhp:version>01</mhp:version>
+          <mhp:mhpVersion>
+            <mhp:profile>0</mhp:profile>
+            <mhp:versionMajor>1</mhp:versionMajor>
+            <mhp:versionMinor>3</mhp:versionMinor>
+            <mhp:versionMicro>1</mhp:versionMicro>
+          </mhp:mhpVersion>
+          <dvbixmlait:Description xml:lang="en">example description of an application</dvbixmlait:Description>
+        </mhp:applicationDescriptor>
+        <mhp:applicationTransport xsi:type="mhp:HTTPTransportType">
+          <mhp:URLBase>https://www.example.com/</mhp:URLBase>
+        </mhp:applicationTransport>
+        <mhp:applicationLocation>whizzo-app.html?a=1</mhp:applicationLocation>
+      </mhp:Application>
+    </mhp:ApplicationList>
+  </mhp:ApplicationDiscovery>
+</mhp:ServiceDiscovery>

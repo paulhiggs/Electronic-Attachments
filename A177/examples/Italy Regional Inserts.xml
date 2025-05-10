@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ServiceList version="1" xml:lang="en" xmlns="urn:dvb:metadata:servicediscovery:2023" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicediscovery:2023 ../dvbi_v5.0.xsd">
+<ServiceList version="1" xml:lang="en" id="tag:dvb.org,2023:example-italy-inserts" xmlns="urn:dvb:metadata:servicediscovery:2024" xmlns:dvbi-types="urn:dvb:metadata:servicediscovery-types:2023" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicediscovery:2024 ../dvbi_v6.0.xsd">
 	<Name>RAI 3 example</Name>
 	<ProviderName>RAI</ProviderName>
 	<RegionList version="1">
@@ -47,7 +47,7 @@
 			<DVBSDeliveryParameters	>
 				<DVBTriplet origNetId="318" tsId="5200" serviceId="3403"/>
 				<OrbitalPosition>-5</OrbitalPosition>
-				<Frequency>11179</Frequency>
+				<Frequency>1117900</Frequency>
 				<Polarization>vertical</Polarization>
 			</DVBSDeliveryParameters>
 		</ServiceInstance>
@@ -60,7 +60,7 @@
 			</Availability>			
 			<DASHDeliveryParameters>
 				<UriBasedLocation contentType="application/dash+xml">
-					<URI>https://www.raiplay.it/dvbi/mpd/rai3_tgr_piemonte.mpd</URI>
+					<dvbi-types:URI>https://www.raiplay.it/dvbi/mpd/rai3_tgr_piemonte.mpd</dvbi-types:URI>
 				</UriBasedLocation>
 			</DASHDeliveryParameters>
 		</ServiceInstance>
@@ -73,9 +73,6 @@
 		<ServiceInstance priority="2">
 			<DVBSDeliveryParameters	>
 				<DVBTriplet origNetId="318" tsId="5200" serviceId="3403"/>
-				<OrbitalPosition>-5</OrbitalPosition>
-				<Frequency>11179</Frequency>
-				<Polarization>vertical</Polarization>
 			</DVBSDeliveryParameters>
 		</ServiceInstance>
 		<ServiceInstance priority="1">
@@ -87,7 +84,7 @@
 			</Availability>			
 			<DASHDeliveryParameters>
 				<UriBasedLocation contentType="application/dash+xml">
-					<URI>https://www.raiplay.it/dvbi/mpd/rai3_tgr_lombardia.mpd</URI>
+					<dvbi-types:URI>https://www.raiplay.it/dvbi/mpd/rai3_tgr_lombardia.mpd</dvbi-types:URI>
 				</UriBasedLocation>
 			</DASHDeliveryParameters>
 		</ServiceInstance>
