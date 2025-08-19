@@ -1,61 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Example of response to query: https://csr.dvbservices.com/query?TargetCountry=IT&regulatorListFlag=true -->
-<ServiceListEntryPoints xml:lang="en" xmlns="urn:dvb:metadata:servicelistdiscovery:2025" xmlns:dvbi-types="urn:dvb:metadata:servicediscovery-types:2025" xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicelistdiscovery:2025 ../dvbi_service_list_discovery_v1.7.xsd">
-	<ServiceListRegistryEntity regulatorFlag="true">
-		<Name>DVB Services Sàrl</Name>
-		<Address>
+<slr:ServiceListEntryPoints xml:lang="en" xmlns:slr="urn:dvb:metadata:servicelistdiscovery:2025" xmlns:dt="urn:dvb:metadata:servicediscovery-types:2025" xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicelistdiscovery:2025 ../dvbi_service_list_discovery_v1.7.xsd">
+	<slr:ServiceListRegistryEntity regulatorFlag="true">
+		<slr:Name>DVB Services Sàrl</slr:Name>
+		<slr:Address>
 			<mpeg7:Name>John Doe</mpeg7:Name>
 			<mpeg7:PostalAddress>
 				<mpeg7:AddressLine>Geneva, Switzerland</mpeg7:AddressLine>
 			</mpeg7:PostalAddress>
-		</Address>
-		<ElectronicAddress>
+		</slr:Address>
+		<slr:ElectronicAddress>
 			<mpeg7:Telephone>+41 22 0000000</mpeg7:Telephone>
 			<mpeg7:Email>dvbi_csr@dvbservices.com</mpeg7:Email>
 			<mpeg7:Url>csr.dvbservices.com</mpeg7:Url>
-		</ElectronicAddress>
-	</ServiceListRegistryEntity>
-	<ProviderOffering>
-		<Provider>
-			<Name>AGCOM</Name>
-			<Address>
+		</slr:ElectronicAddress>
+	</slr:ServiceListRegistryEntity>
+	<slr:ProviderOffering>
+		<slr:Provider>
+			<slr:Name>AGCOM</slr:Name>
+			<slr:Address>
 				<mpeg7:Name>John Doe</mpeg7:Name>
 				<mpeg7:PostalAddress>
 					<mpeg7:AddressLine>Roma, Italy</mpeg7:AddressLine>
 				</mpeg7:PostalAddress>
-			</Address>
-			<ElectronicAddress>
+			</slr:Address>
+			<slr:ElectronicAddress>
 				<mpeg7:Telephone>+39 06 0000000</mpeg7:Telephone>
 				<mpeg7:Email>dvbi@agcom.it</mpeg7:Email>
-			</ElectronicAddress>
-		</Provider>
-		<ServiceListOffering regulatorListFlag="true">
-			<dvbi-types:ServiceListName>Italian Trusted Services</dvbi-types:ServiceListName>
-			<dvbi-types:ServiceListURI contentType="application/xml">
-				<dvbi-types:URI>https://dvbi.italian-authority.it/trusted-services-dtt.xml</dvbi-types:URI>
-			</dvbi-types:ServiceListURI>
-			<dvbi-types:Delivery>
-				<dvbi-types:DASHDelivery/>
-				<dvbi-types:DVBTDelivery required="true"/>
-			</dvbi-types:Delivery>
-			<dvbi-types:Language>it</dvbi-types:Language>
-			<dvbi-types:TargetCountry>ITA</dvbi-types:TargetCountry>
-			<dvbi-types:ServiceListId>tag:dvb.org,2023:example-italy-trust-dtt</dvbi-types:ServiceListId>
-		</ServiceListOffering>
-		<ServiceListOffering regulatorListFlag="true">
-			<dvbi-types:ServiceListName>Italian Trusted Services</dvbi-types:ServiceListName>
-			<dvbi-types:ServiceListURI contentType="application/xml">
-				<dvbi-types:URI>https://dvbi.italian-authority.it/trusted-services-dth.xml</dvbi-types:URI>
-			</dvbi-types:ServiceListURI>
-			<dvbi-types:Delivery>
-				<dvbi-types:DASHDelivery/>
-				<dvbi-types:DVBSDelivery required="true">
-					<dvbi-types:OrbitalPosition>13.7</dvbi-types:OrbitalPosition>
-				</dvbi-types:DVBSDelivery>
-			</dvbi-types:Delivery>
-			<dvbi-types:Language>it</dvbi-types:Language>
-			<dvbi-types:TargetCountry>ITA</dvbi-types:TargetCountry>
-			<dvbi-types:ServiceListId>tag:dvb.org,2023:example-italy-trust-dth</dvbi-types:ServiceListId>
-		</ServiceListOffering>
-	</ProviderOffering>
-</ServiceListEntryPoints>
+			</slr:ElectronicAddress>
+		</slr:Provider>
+		<slr:ServiceListOffering regulatorListFlag="true">
+			<dt:ServiceListName>Italian Trusted Services</dt:ServiceListName>
+			<dt:ServiceListURI contentType="application/vnd.dvb.dvbisl+xml" standardVersion="urn:dvb:metadata:dvbi:standardversion:6">
+				<dt:URI>https://dvbi.italian-authority.it/v6/trusted-services-dtt.xml</dt:URI>
+			</dt:ServiceListURI>
+			<dt:ServiceListURI contentType="application/xml" standardVersion="urn:dvb:metadata:dvbi:standardversion:7">
+				<dt:URI>https://dvbi.italian-authority.it/v7/trusted-services-dtt.xml</dt:URI>
+			</dt:ServiceListURI>
+			<dt:Delivery>
+				<dt:DASHDelivery/>
+				<dt:DVBTDelivery required="true"/>
+			</dt:Delivery>
+			<dt:Language>it</dt:Language>
+			<dt:TargetCountry>ITA</dt:TargetCountry>
+			<dt:ServiceListId>tag:dvb.org,2023:example-italy-trust-dtt</dt:ServiceListId>
+		</slr:ServiceListOffering>
+		<slr:ServiceListOffering regulatorListFlag="true">
+			<dt:ServiceListName>Italian Trusted Services</dt:ServiceListName>
+			<dt:ServiceListURI contentType="application/vnd.dvb.dvbisl+xml" standardVersion="urn:dvb:metadata:dvbi:standardversion:6">
+				<dt:URI>https://dvbi.italian-authority.it/v6/trusted-services-dth.xml</dt:URI>
+			</dt:ServiceListURI>
+			<dt:ServiceListURI contentType="application/xml" standardVersion="urn:dvb:metadata:dvbi:standardversion:7">
+				<dt:URI>https://dvbi.italian-authority.it/v7/trusted-services-dth.xml</dt:URI>
+			</dt:ServiceListURI>
+			<dt:Delivery>
+				<dt:DASHDelivery/>
+				<dt:DVBSDelivery required="true">
+					<dt:OrbitalPosition>13.7</dt:OrbitalPosition>
+				</dt:DVBSDelivery>
+			</dt:Delivery>
+			<dt:Language>it</dt:Language>
+			<dt:TargetCountry>ITA</dt:TargetCountry>
+			<dt:ServiceListId>tag:dvb.org,2023:example-italy-trust-dth</dt:ServiceListId>
+		</slr:ServiceListOffering>
+	</slr:ProviderOffering>
+</slr:ServiceListEntryPoints>

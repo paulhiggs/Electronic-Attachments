@@ -54,7 +54,7 @@
 			</ProgramInformation>
 		</ProgramInformationTable>
 		<ProgramLocationTable xml:lang="en">
-			<Schedule serviceIDRef="tag:dvb.org,2023:example-3039" start="2013-09-25T11:15:00Z" end="2013-09-25T12:30:00.000Z">
+			<Schedule serviceIDRef="tag:broadcaster.com,2025:3039" start="2013-09-25T11:15:00Z" end="2013-09-25T12:30:00.000Z">
 				<ScheduleEvent>
 					<Program crid="crid://channel7.co.uk/b01myjsy"/>
 					<ProgramURL>dvb://233a..3039;b2e3</ProgramURL>
@@ -74,9 +74,6 @@
 								<VerticalSize>1080</VerticalSize>
 								<AspectRatio>16:9</AspectRatio>
 							</VideoAttributes>
-							<CaptioningAttributes>
-								<Coding href="urn:tva:metadata:cs:CaptionCodingFormatCS:2015:2.1"/>
-							</CaptioningAttributes>
 							<AccessibilityAttributes>
 								<SubtitleAttributes>
 									<Carriage href="urn:tva:metadata:cs:SubtitleCarriageCS:2023:2"/>
@@ -125,7 +122,7 @@
 					<PublishedDuration>PT30M</PublishedDuration>
 				</ScheduleEvent>
 			</Schedule>
-			<OnDemandProgram serviceIDRef="3039">
+			<OnDemandProgram serviceIDRef="tag:broadcaster.com,2025:3039">
 				<Program crid="crid://channel7.co.uk/b01myjsy"/>
 				<ProgramURL contentType="application/vnd.dvb.ait+xml">
 					https://channel7.co.uk/ait.aitx?pid=b01myjsy</ProgramURL>
@@ -134,7 +131,6 @@
 				<InstanceDescription>
 					<Genre href="urn:fvc:metadata:cs:MediaAvailabilityCS:2014-07:media_available" type="other"/>
 					<Genre href="urn:fvc:metadata:cs:FEPGAvailabilityCS:2014-10:fepg_unavailable" type="other"/>
-					<CaptionLanguage closed="true">en</CaptionLanguage>
 					<AVAttributes>
 						<VideoAttributes>
 							<HorizontalSize>576</HorizontalSize>

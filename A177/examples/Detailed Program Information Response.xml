@@ -55,11 +55,19 @@
 							<MediaUri contentType="image/png">https://img-ctv.mdata.co.uk/channel7/bargain_hunt.png</MediaUri>
 						</MediaLocator>
 					</RelatedMaterial>
+					<ReleaseInformation>
+						<ReleaseDate><Year>1999</Year></ReleaseDate>
+						<ReleaseLocation>GB</ReleaseLocation>
+					</ReleaseInformation>
+					<ReleaseInformation>
+						<ReleaseDate><DayAndYear>2001-12-22</DayAndYear></ReleaseDate>
+						<ReleaseLocation>NZ</ReleaseLocation>
+					</ReleaseInformation>
 				</BasicDescription>
 			</ProgramInformation>
 		</ProgramInformationTable>
 		<ProgramLocationTable xml:lang="en">
-			<OnDemandProgram serviceIDRef="http://channel7.co.uk/service_a_app">
+			<OnDemandProgram serviceIDRef="tag:channel7.co.uk,2025:service_a">
 				<Program crid="crid://channel7.co.uk/b01myjsy"/>
 				<ProgramURL contentType="application/vnd.dvb.ait+xml">https://channel7.co.uk/ait.aitx?pid=b01myjsy</ProgramURL>
 				<AuxiliaryURL contentType="application/vnd.dvb.ait+xml">https://channel7.co.uk/ait.aitx?template</AuxiliaryURL>

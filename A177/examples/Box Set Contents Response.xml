@@ -61,7 +61,7 @@
 			<ProgramInformation programId="crid://mybroadcaster.co.uk/mdata/episode/b00ty88t">
 				<BasicDescription>
 					<Title type="main">Stewart Lee's Comedy Vehicle</Title>
-					<Title type="secondary">Series 1: 4. Motoring</Title>
+					<Title type="secondary">Series 2: 1. Motoring</Title>
 					<RelatedMaterial>
 						<HowRelated href="urn:tva:metadata:cs:HowRelatedCS:2012:19"/>
 						<MediaLocator>
@@ -71,42 +71,42 @@
 					</RelatedMaterial>
 				</BasicDescription>
 				<MemberOf xsi:type="MemberOfType" index="4" crid="crid://mdata.co.uk/collections/boxsets/stewart_lee"/>
-				<MemberOf xsi:type="MemberOfType" index="4" crid="crid://mdata.co.uk/collections/boxsets/stewart_lee/series_1"/>
+				<MemberOf xsi:type="MemberOfType" index="1" crid="crid://mdata.co.uk/collections/boxsets/stewart_lee/series_2"/>
 			</ProgramInformation>
 		</ProgramInformationTable>
 		<GroupInformationTable>
-			<GroupInformation groupId="crid://mdata.co.uk/collections/boxsets/stewart_lee" ordered="true" numOfItems="2" serviceIDRef="http://www.mybroadcaster.co.uk/mdata/service/apps/broadcast_two2">
+			<GroupInformation groupId="crid://mdata.co.uk/collections/boxsets/stewart_lee" ordered="true" numOfItems="4" serviceIDRef="tag:broadcasters.org,2025:broadcast_two2">
 				<GroupType xsi:type="ProgramGroupTypeType" value="otherCollection"/>
 				<BasicDescription/>
 			</GroupInformation>
-			<GroupInformation groupId="crid://mdata.co.uk/collections/boxsets/stewart_lee/series_1" ordered="true" numOfItems="2" serviceIDRef="http://www.mybroadcaster.co.uk/mdata/service/apps/broadcast_two2">
+			<GroupInformation groupId="crid://mdata.co.uk/collections/boxsets/stewart_lee/series_1" ordered="true" numOfItems="3" serviceIDRef="tag:broadcasters.org,2025:broadcast_two2">
 				<GroupType xsi:type="ProgramGroupTypeType" value="otherCollection"/>
 				<BasicDescription/>
+				<MemberOf xsi:type="MemberOfType" index="1" crid="crid://mdata.co.uk/collections/boxsets/stewart_lee"/>
+			</GroupInformation>
+			<GroupInformation groupId="crid://mdata.co.uk/collections/boxsets/stewart_lee/series_2" ordered="true" numOfItems="1" serviceIDRef="tag:broadcasters.org,2025:broadcast_two2">
+				<GroupType xsi:type="ProgramGroupTypeType" value="otherCollection"/>
+				<BasicDescription/>
+				<MemberOf xsi:type="MemberOfType" index="2" crid="crid://mdata.co.uk/collections/boxsets/stewart_lee"/>
 			</GroupInformation>
 		</GroupInformationTable>
 		<ProgramLocationTable xml:lang="en">
-			<BroadcastEvent serviceIDRef="http://www.mybroadcaster.co.uk/mdata/service/apps/broadcast_2">
+			<BroadcastEvent serviceIDRef="tag:broadcasters.org,2025:/broadcast_2">
 				<Program crid="crid://mybroadcaster.co.uk/mdata/episode/b00ty77t"/>
 				<ProgramURL contentType="application/vnd.dvb.ait+xml">
-					https://www.live.tvapps.co.uk/ait/launch/iplr.aitx?deeplink=tv/playback/b00ty77t
+					dvb://233a..1044;c377
 				</ProgramURL>
-				<AuxiliaryURL contentType="application/vnd.dvb.ait+xml">
-					https://www.live.mybroadcaster.co.uk/ait/launch/iplayer.aitx
-				</AuxiliaryURL>
 				<PublishedStartTime>2018-07-20T08:00:00Z</PublishedStartTime>
 				<PublishedDuration>PT00H30M00S</PublishedDuration>
 			</BroadcastEvent>
-			<BroadcastEvent serviceIDRef="http://www.mybroadcaster.co.uk/mdata/service/apps/broadcast_2">
+			<BroadcastEvent serviceIDRef="tag:broadcasters.org,2025:broadcast_2">
 				<Program crid="crid://mybroadcaster.co.uk/mdata/episode/b00ty88t"/>
 				<ProgramURL contentType="application/vnd.dvb.ait+xml">
-					https://www.live.tvapps.co.uk/ait/launch/iplr.aitx?deeplink=tv/playback/b00ty88t
+					dvb://233a..1044;c388
 				</ProgramURL>
-				<AuxiliaryURL contentType="application/vnd.dvb.ait+xml">
-					https://www.live.mybroadcaster.co.uk/ait/launch/iplayer.aitx
-				</AuxiliaryURL>
 				<PublishedDuration>PT00H30M00S</PublishedDuration>
 			</BroadcastEvent>
-			<OnDemandProgram serviceIDRef="http://www.mybroadcaster.co.uk/mdata/service/apps/broadcast_2">
+			<OnDemandProgram serviceIDRef="tag:broadcasters.org,2025:broadcast_2">
 				<Program crid="crid://mybroadcaster.co.uk/mdata/episode/b00jd8gp"/>
 				<ProgramURL contentType="application/vnd.dvb.ait+xml">
 					https://www.live.mybroadcastertvapps.co.uk/ait/launch/iplayer.aitx?deeplink=tv/playback/b00jd8gp
@@ -119,7 +119,7 @@
 				<EndOfAvailability>2019-01-12T09:00:00Z</EndOfAvailability>
 				<Free value="true"/>
 			</OnDemandProgram>
-			<OnDemandProgram serviceIDRef="http://www.mybroadcaster.co.uk/mdata/service/apps/broadcast_2">
+			<OnDemandProgram serviceIDRef="tag:broadcasters.org,2025:broadcast_2">
 				<Program crid="crid://mybroadcaster.co.uk/mdata/episode/b00jhpy6"/>
 				<ProgramURL contentType="application/vnd.dvb.ait+xml">
 					https://www.live.mybroadcastertvapps.co.uk/ait/launch/iplayer.aitx?deeplink=tv/playback/b00jhpy6

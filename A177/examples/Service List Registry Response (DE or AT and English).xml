@@ -40,8 +40,8 @@
 		<ServiceListOffering>
 			<dvbi-types:ServiceListName xml:lang="de">TV aus Deutschland</dvbi-types:ServiceListName>
 			<dvbi-types:ServiceListName xml:lang="en">TV from Germany</dvbi-types:ServiceListName>
-			<dvbi-types:ServiceListURI contentType="application/xml">
-				<dvbi-types:URI>https://dvbi.TVfromTheWorld.com/TVservices_Germany.xml</dvbi-types:URI>
+			<dvbi-types:ServiceListURI contentType="application/xml" standardVersion="urn:dvb:metadata:dvbi:standardversion:7">
+				<dvbi-types:URI>https://dvbi.TVfromTheWorld.com/v7/TVservices_Germany.xml</dvbi-types:URI>
 			</dvbi-types:ServiceListURI>
 			<dvbi-types:Delivery>
 				<dvbi-types:DASHDelivery required="true"/>
@@ -73,9 +73,9 @@
 					https://www.british-service-list-provider.co.uk/documentaries.xml
 				</dvbi-types:URI>
 			</dvbi-types:ServiceListURI>
-			<dvbi-types:ServiceListURI contentType="application/xml">
+			<dvbi-types:ServiceListURI contentType="application/xml" standardVersion="urn:dvb:metadata:dvbi:standardversion:7">
 				<dvbi-types:URI>
-					https://alt.british-service-list-provider.co.uk/documentaries.xml
+					https://alt.british-service-list-provider.co.uk/v7/documentaries.xml
 				</dvbi-types:URI>
 			</dvbi-types:ServiceListURI>
 			<dvbi-types:Delivery>

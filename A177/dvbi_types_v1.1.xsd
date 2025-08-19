@@ -33,10 +33,17 @@
 	<simpleType name="NetworkIdType">
 		<restriction base="unsignedShort"/>
 	</simpleType>
+	<complexType name="ServiceListURIType">
+		<complexContent>
+			<extension base="dvbi-types:ExtendedURIType">
+				<attribute name="standardVersion" type="mpeg7:termReferenceType"/>
+			</extension>
+		</complexContent>
+	</complexType>
 	<complexType name="ServiceListOfferingType">
 		<sequence>
 			<element name="ServiceListName" type="mpeg7:TextualType" maxOccurs="unbounded"/>
-			<element name="ServiceListURI" type="dvbi-types:ExtendedURIType" maxOccurs="unbounded"/>
+			<element name="ServiceListURI" type="dvbi-types:ServiceListURIType" maxOccurs="unbounded"/>
 			<element name="Delivery" type="dvbi-types:DeliveryType"/>
 			<element name="Language" type="tva:AudioLanguageType" minOccurs="0" maxOccurs="unbounded"/>
 			<element name="Genre" type="tva:GenreType" minOccurs="0" maxOccurs="unbounded"/>
