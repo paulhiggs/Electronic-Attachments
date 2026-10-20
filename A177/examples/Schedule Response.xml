@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TVAMain xmlns="urn:tva:metadata:2024" xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xml:lang="en" xsi:schemaLocation="urn:tva:metadata:2024 ../tva_metadata_3-1.xsd">
+<TVAMain xmlns="urn:tva:metadata:2026" xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xml:lang="en" xsi:schemaLocation="urn:tva:metadata:2026 ../tva_metadata_3-1_v1141.xsd">
 	<ProgramDescription>
 		<ProgramInformationTable xml:lang="en">
 			<ProgramInformation programId="crid://channel7.co.uk/b01myjsy">
@@ -59,15 +59,14 @@
 					<Program crid="crid://channel7.co.uk/b01myjsy"/>
 					<ProgramURL>dvb://233a..3039;b2e3</ProgramURL>
 					<InstanceDescription>
+						<Genre href="urn:fvc:metadata:cs:RestartAvailabilityCS:2018:restart_check" type="other"/>
 						<AVAttributes>
 							<AudioAttributes>
-								<AudioLanguage purpose="urn:tva:metadata:cs:AudioPurposeCS:2007:1">
-								  en</AudioLanguage>
+								<AudioLanguage purpose="urn:tva:metadata:cs:AudioPurposeCS:2007:1">en</AudioLanguage>
 							</AudioAttributes>
 							<AudioAttributes>
 								<MixType href="urn:mpeg:mpeg7:cs:AudioPresentationCS:2001:3"/>
-								<AudioLanguage purpose="urn:tva:metadata:cs:AudioPurposeCS:2007:6">
-								  en</AudioLanguage>
+								<AudioLanguage purpose="urn:tva:metadata:cs:AudioPurposeCS:2007:6">en</AudioLanguage>
 							</AudioAttributes>
 							<VideoAttributes>
 								<HorizontalSize>1920</HorizontalSize>
@@ -89,7 +88,7 @@
 								</AudioDescriptionAttributes>
 								<SigningAttributes>
 									<Coding href="urn:dvb:metadata:cs:VideoCodecCS:2022:4.1.6"/>
-									<SignLanguage>sgn</SignLanguage>
+									<SignLanguage>bfi</SignLanguage>
 									<Closed>false</Closed>
 								</SigningAttributes>
 							</AccessibilityAttributes>
@@ -98,6 +97,25 @@
 							crid://channel7.co.uk/23VD4Q</OtherIdentifier>
 						<OtherIdentifier type="eit-series-crid">
 							crid://channel7.co.uk/KM9T8E</OtherIdentifier>
+						<RelatedMaterial>
+							<HowRelated href="urn:dvb:metadata:cs:LinkedApplicationCS:2019:1.1"/>
+							<MediaLocator>
+								<MediaUri contentType="application/vnd.dvb.ait+xml">
+									https://linkto.myapp.de/xml.aitx?sid=11111</MediaUri>
+							</MediaLocator>
+							<AccessibilityAttributes>
+								<SigningAttributes>
+									<AppInformation>
+										<RequiredStandardVersion> 
+											urn:hbbtv:appinformation:standardversion:hbbtv:1.7.1
+										</RequiredStandardVersion>	
+									</AppInformation>
+									<Coding href="urn:dvb:metadata:cs:VideoCodecCS:2007:1.4.14"/>
+									<SignLanguage>ase</SignLanguage>
+									<Closed>true</Closed>
+								</SigningAttributes>
+							</AccessibilityAttributes>
+						</RelatedMaterial>
 					</InstanceDescription>
 					<PublishedStartTime>2013-09-25T11:15:00Z</PublishedStartTime>
 					<PublishedDuration>PT45M</PublishedDuration>

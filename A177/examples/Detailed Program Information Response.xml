@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TVAMain xmlns="urn:tva:metadata:2024" xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:lang="en" xsi:schemaLocation="urn:tva:metadata:2024 ../tva_metadata_3-1.xsd">
+<TVAMain xmlns="urn:tva:metadata:2026" xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xml:lang="en" xsi:schemaLocation="urn:tva:metadata:2026 ../tva_metadata_3-1_v1141.xsd">
 	<ProgramDescription>
 		<ProgramInformationTable xml:lang="en">
 			<ProgramInformation programId="crid://channel7.co.uk/b01myjsy">
@@ -67,6 +67,15 @@
 			</ProgramInformation>
 		</ProgramInformationTable>
 		<ProgramLocationTable xml:lang="en">
+			<BroadcastEvent
+					serviceIDRef="tag:broadcasters.org,2025:broadcast_2">
+				<Program crid="crid://channel7.co.uk/b01myjsy"/>
+				<ProgramURL contentType="application/vnd.dvb.ait+xml">
+					dvb://233a..1044;c377
+				</ProgramURL>
+				<PublishedStartTime>2018-07-20T08:00:00Z</PublishedStartTime>
+				<PublishedDuration>PT00H30M00S</PublishedDuration>
+			</BroadcastEvent> 
 			<OnDemandProgram serviceIDRef="tag:channel7.co.uk,2025:service_a">
 				<Program crid="crid://channel7.co.uk/b01myjsy"/>
 				<ProgramURL contentType="application/vnd.dvb.ait+xml">https://channel7.co.uk/ait.aitx?pid=b01myjsy</ProgramURL>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TVAMain xmlns="urn:tva:metadata:2024" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xml:lang="en" xsi:schemaLocation="urn:tva:metadata:2024 ../tva_metadata_3-1.xsd">
+<TVAMain xmlns="urn:tva:metadata:2026" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xml:lang="en" xsi:schemaLocation="urn:tva:metadata:2026 ../tva_metadata_3-1_v1141.xsd">
     <ProgramDescription>
         <ProgramInformationTable xml:lang="en">
             <ProgramInformation programId="crid://channel7.co.uk/n19alrr1">
@@ -53,6 +53,15 @@
             </GroupInformation>
         </GroupInformationTable>
         <ProgramLocationTable xml:lang="en">
+			<BroadcastEvent
+					serviceIDRef="tag:broadcasters.org,2025:broadcast_2">
+				<Program crid="crid://channel7.co.uk/n19alrr2"/>
+				<ProgramURL contentType="application/vnd.dvb.ait+xml">
+					dvb://233a..1044;c377
+				</ProgramURL>
+				<PublishedStartTime>2018-07-20T08:00:00Z</PublishedStartTime>
+				<PublishedDuration>PT00H30M00S</PublishedDuration>
+			</BroadcastEvent> 
             <OnDemandProgram serviceIDRef="tag:channel7.co.uk,2025:service_a">
                 <Program crid="crid://channel7.co.uk/n19alrr1"/>
                 <ProgramURL contentType="application/vnd.dvb.ait+xml">

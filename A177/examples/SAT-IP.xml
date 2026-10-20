@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ServiceList version="1" xml:lang="en" id="tag:dvb.org,2023:example-sat-ip" xmlns="urn:dvb:metadata:servicediscovery:2025" xmlns:dvbi-types="urn:dvb:metadata:servicediscovery-types:2025" xmlns:tva="urn:tva:metadata:2024" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicediscovery:2025 ../dvbi_v7.0.xsd" >
+<ServiceList version="1" xml:lang="en" id="tag:dvb.org,2023:example-sat-ip" xmlns="urn:dvb:metadata:servicediscovery:2026" xmlns:dvbi-types="urn:dvb:metadata:servicediscovery-types:2026" xmlns:tva="urn:tva:metadata:2026" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicediscovery:2026 ../dvbi_v8.0.xsd">
+	<StandardVersion>urn:dvb:metadata:dvbi:standardversion:8</StandardVersion>	
 	<StandardVersion>urn:dvb:metadata:dvbi:standardversion:7</StandardVersion>
 	<StandardVersion>urn:dvb:metadata:dvbi:standardversion:6</StandardVersion>
 	<Name>Germany FTA Example</Name>
@@ -63,11 +64,11 @@
 		</Region>
 	</RegionList>
 	<LCNTableList>
-		<LCNTable>
+		<LCNTable version="101">
 			<TargetRegion>Deutschland</TargetRegion>
 			<LCN channelNumber="1" serviceRef="tag:daserste.de,2019:DasErste"/>
 		</LCNTable>
-		<LCNTable>
+		<LCNTable version="101">
 			<TargetRegion>Saarland</TargetRegion>
 			<LCN channelNumber="1" serviceRef="tag:daserste.de,2019:DasErste"/>
 		</LCNTable>

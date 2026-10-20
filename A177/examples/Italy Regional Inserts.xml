@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ServiceList version="1" xml:lang="en" id="tag:dvb.org,2023:example-italy-inserts" xmlns="urn:dvb:metadata:servicediscovery:2025" xmlns:dvbi-types="urn:dvb:metadata:servicediscovery-types:2025" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicediscovery:2025 ../dvbi_v7.0.xsd">
+<ServiceList version="1" xml:lang="en" id="tag:dvb.org,2023:example-italy-inserts" xmlns="urn:dvb:metadata:servicediscovery:2026" xmlns:dvbi-types="urn:dvb:metadata:servicediscovery-types:2026" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicediscovery:2026 ../dvbi_v8.0.xsd">
 	<Name>RAI 3 example</Name>
 	<ProviderName>RAI</ProviderName>
 	<RegionList version="1">
@@ -32,11 +32,11 @@
 		</Region>
 	</RegionList>
 	<LCNTableList>
-		<LCNTable>
+		<LCNTable version="17">
 			<TargetRegion>Piemonte</TargetRegion>
 			<LCN channelNumber="3" serviceRef="tag:rai.it,2019:rai-3-piemonte"/>
 		</LCNTable>
-		<LCNTable>
+		<LCNTable version="12">
 			<TargetRegion>Lombardia</TargetRegion>
 			<LCN channelNumber="3" serviceRef="tag:rai.it,2019:rai-3-lombardia"/>
 		</LCNTable>

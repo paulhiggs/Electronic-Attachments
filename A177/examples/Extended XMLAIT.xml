@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mhp:ServiceDiscovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:dvb:metadata:dvb:linkedapplication:xmlait:2023" xmlns:dvbixmlait="urn:dvb:metadata:dvb:linkedapplication:xmlait:2023" xmlns:mhp="urn:dvb:mhp:2009"  xsi:schemaLocation="urn:dvb:metadata:dvb:linkedapplication:xmlait:2023 ../dvbi_xmlait_extension_v1.0.xsd">
+<mhp:ServiceDiscovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:dvb:metadata:dvb:linkedapplication:xmlait:2023" xmlns:mhp="urn:dvb:mhp:2026" xsi:schemaLocation="urn:dvb:mhp:2026 ../xmlait/mis_xmlait_2026.xsd">
   <mhp:ApplicationDiscovery DomainName="example.com">
     <mhp:ApplicationList>
       <mhp:Application>
@@ -8,7 +8,7 @@
           <mhp:orgId>123</mhp:orgId>
           <mhp:appId>456</mhp:appId>
         </mhp:applicationIdentifier>
-        <mhp:applicationDescriptor xsi:type="dvbixmlait:DVBIApplicationDescriptor">
+        <mhp:applicationDescriptor>
           <mhp:type>
             <mhp:OtherApp>application/vnd.hbbtv.xhtml+xml</mhp:OtherApp>
           </mhp:type>
@@ -23,7 +23,7 @@
             <mhp:versionMinor>3</mhp:versionMinor>
             <mhp:versionMicro>1</mhp:versionMicro>
           </mhp:mhpVersion>
-          <dvbixmlait:Description xml:lang="en">example description of an application</dvbixmlait:Description>
+          <mhp:description Language="eng">example description of an application</mhp:description>
         </mhp:applicationDescriptor>
         <mhp:applicationTransport xsi:type="mhp:HTTPTransportType">
           <mhp:URLBase>https://www.example.com/</mhp:URLBase>

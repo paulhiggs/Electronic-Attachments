@@ -16,8 +16,10 @@
 			<File FilePath="examples\SAT-IP.xml" HomeFolder="Yes"/>
 			<File FilePath="examples\Schedule NowNext Response.xml" HomeFolder="Yes"/>
 			<File FilePath="examples\Schedule NowNext Window Response.xml" HomeFolder="Yes"/>
+			<File FilePath="examples\Schedule Response+AccessibilityAttributes.xml" HomeFolder="Yes"/>
 			<File FilePath="examples\Schedule Response.xml" HomeFolder="Yes"/>
 			<File FilePath="examples\Service List Access Services.xml" HomeFolder="Yes"/>
+			<File FilePath="examples\Service List CMCD.xml" HomeFolder="Yes"/>
 			<File FilePath="examples\Service List Registry Response (DE or AT and English).xml" HomeFolder="Yes"/>
 			<File FilePath="examples\Service List Registry Response (error).xml" HomeFolder="Yes"/>
 			<File FilePath="examples\Service List Registry Response (IT and Regulated).xml" HomeFolder="Yes"/>
@@ -35,20 +37,19 @@
 	<Folder FolderName="HTML Files" ExtStr="html;htm;xhtml;asp"/>
 	<Folder FolderName="DTD/Schemas" ExtStr="dtd;dcd;xdr;biz;xsd">
 		<Folder FolderName="imports">
-			<File FilePath="xmlait\mis_xmlait.xsd" HomeFolder="Yes"/>
+			<File FilePath="xmlait\mis_xmlait_2026.xsd" HomeFolder="Yes"/>
 			<File FilePath="xmlait\sdns_v1.4r13.xsd" HomeFolder="Yes"/>
 			<File FilePath="xmlait\sdns_v1.5r25b.xsd" HomeFolder="Yes"/>
-			<File FilePath="tva_metadata_3-1.xsd" HomeFolder="Yes"/>
+			<File FilePath="tva_metadata_3-1_v1141.xsd" HomeFolder="Yes"/>
 			<File FilePath="xmlait\tva_metadata_3-1_v131.xsd" HomeFolder="Yes"/>
 			<File FilePath="xmlait\tva_metadata_3-1_v171.xsd" HomeFolder="Yes"/>
 			<File FilePath="tva_mpeg7.xsd" HomeFolder="Yes"/>
 			<File FilePath="xmlait\tva_mpeg7_2005.xsd" HomeFolder="Yes"/>
 			<File FilePath="xmlait\tva_mpeg7_2008.xsd" HomeFolder="Yes"/>
 		</Folder>
-		<File FilePath="dvbi_service_list_discovery_v1.7.xsd" HomeFolder="Yes"/>
-		<File FilePath="dvbi_types_v1.1.xsd" HomeFolder="Yes"/>
-		<File FilePath="dvbi_v7.0.xsd" HomeFolder="Yes"/>
-		<File FilePath="dvbi_xmlait_extension_v1.0.xsd" HomeFolder="Yes"/>
+		<File FilePath="dvbi_service_list_discovery_v1.8.xsd" HomeFolder="Yes"/>
+		<File FilePath="dvbi_types_v1.2.xsd" HomeFolder="Yes"/>
+		<File FilePath="dvbi_v8.0.xsd" HomeFolder="Yes"/>
 	</Folder>
 	<Folder FolderName="Entities" ExtStr="ent"/>
 </Project>

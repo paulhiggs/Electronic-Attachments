@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Example of response to query: https://csr.dvbservices.com/query?TargetCountry=IT&regulatorListFlag=true -->
-<slr:ServiceListEntryPoints xml:lang="en" xmlns:slr="urn:dvb:metadata:servicelistdiscovery:2025" xmlns:dt="urn:dvb:metadata:servicediscovery-types:2025" xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicelistdiscovery:2025 ../dvbi_service_list_discovery_v1.7.xsd">
+<slr:ServiceListEntryPoints xml:lang="en" xmlns:slr="urn:dvb:metadata:servicelistdiscovery:2026" xmlns:dt="urn:dvb:metadata:servicediscovery-types:2026" xmlns:mpeg7="urn:tva:mpeg7:2008" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:dvb:metadata:servicelistdiscovery:2026 ../dvbi_service_list_discovery_v1.8.xsd">
 	<slr:ServiceListRegistryEntity regulatorFlag="true">
 		<slr:Name>DVB Services Sàrl</slr:Name>
 		<slr:Address>
@@ -37,6 +37,9 @@
 			<dt:ServiceListURI contentType="application/xml" standardVersion="urn:dvb:metadata:dvbi:standardversion:7">
 				<dt:URI>https://dvbi.italian-authority.it/v7/trusted-services-dtt.xml</dt:URI>
 			</dt:ServiceListURI>
+			<dt:ServiceListURI contentType="application/xml" standardVersion="urn:dvb:metadata:dvbi:standardversion:8">
+				<dt:URI>https://dvbi.italian-authority.it/v8/trusted-services-dtt.xml</dt:URI>
+			</dt:ServiceListURI>
 			<dt:Delivery>
 				<dt:DASHDelivery/>
 				<dt:DVBTDelivery required="true"/>
@@ -52,6 +55,9 @@
 			</dt:ServiceListURI>
 			<dt:ServiceListURI contentType="application/xml" standardVersion="urn:dvb:metadata:dvbi:standardversion:7">
 				<dt:URI>https://dvbi.italian-authority.it/v7/trusted-services-dth.xml</dt:URI>
+			</dt:ServiceListURI>
+			<dt:ServiceListURI contentType="application/xml" standardVersion="urn:dvb:metadata:dvbi:standardversion:8">
+				<dt:URI>https://dvbi.italian-authority.it/v8/trusted-services-dth.xml</dt:URI>
 			</dt:ServiceListURI>
 			<dt:Delivery>
 				<dt:DASHDelivery/>

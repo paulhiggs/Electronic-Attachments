@@ -18,7 +18,7 @@
 			<Definition xml:lang="en">An associated application that controls media presentation 
 					or has no media</Definition>
 		</Term>
-				<Term termID="1.3">
+		<Term termID="1.3">
 			<Name xml:lang="en">App in series with media presentation</Name>
 			<Definition xml:lang="en">An associated application that is to be run before media
 				presentation starts</Definition>
@@ -50,7 +50,7 @@
 			</Definition>
 		</Term>
 		<Term termID="4.2">
-			<Name xml:lang="en">Withdrawl of agreement</Name>
+			<Name xml:lang="en">Withdrawal of agreement</Name>
 			<Definition xml:lang="en">
 				An application associated with a whole service list to be run if the user indicates
 				that they withdraw agreement or consent given when the service list was selected.

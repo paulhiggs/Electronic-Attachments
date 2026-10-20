@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ipi="urn:dvb:metadata:iptv:sdns:2008-1" xmlns:ipi12="urn:dvb:metadata:iptv:sdns:2012-1" xmlns:mpeg7="urn:tva:mpeg7:2005" xmlns:mhp="urn:dvb:mhp:2009" targetNamespace="urn:dvb:mhp:2009" elementFormDefault="qualified" attributeFormDefault="qualified">
+<!-- edited with XMLSpy v2019 sp2 (x64) (http://www.altova.com) by Paul Higgs (Private) -->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:mhp="urn:dvb:mhp:2026" xmlns:mpeg7="urn:tva:mpeg7:2005" xmlns:ipi="urn:dvb:metadata:iptv:sdns:2008-1" xmlns:ipi12="urn:dvb:metadata:iptv:sdns:2012-1" targetNamespace="urn:dvb:mhp:2026" elementFormDefault="qualified" attributeFormDefault="qualified">
 	<!-- ###################################################################### -->
 	<!-- Schema Imports -->
 	<xsd:import namespace="urn:dvb:metadata:iptv:sdns:2008-1" schemaLocation="sdns_v1.4r13.xsd"/>
@@ -112,6 +113,7 @@
 			<!-- end tm-mis0053r10 -->
 			<xsd:element name="icon" type="mhp:IconDescriptor" minOccurs="0"/>
 			<xsd:element name="storageCapabilities" type="mhp:StorageCapabilities" minOccurs="0"/>
+			<xsd:element name="description" type="ipi:MultilingualType" minOccurs="0" maxOccurs="unbounded"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	<!-- ~~~ VisibilityDescriptor.  See Clause 5.4.4.5 -->
@@ -316,9 +318,13 @@
 	<xsd:complexType name="ComponentTagType">
 		<xsd:attribute name="ComponentTag" type="ipi:Hexadecimal8bit"/>
 	</xsd:complexType>
-	<xsd:simpleType name="SimpleApplicationLocationDescriptorType">
-		<xsd:restriction base="xsd:anyURI"/>
-	</xsd:simpleType>
+	<xsd:complexType name="SimpleApplicationLocationDescriptorType">
+		<xsd:simpleContent>
+			<xsd:extension base="xsd:anyURI">
+				<xsd:attribute name="verificationPolicy" type="xsd:anyURI"/>
+			</xsd:extension>
+		</xsd:simpleContent>
+	</xsd:complexType>
 	<xsd:complexType name="SimpleApplicationBoundaryDescriptorType">
 		<xsd:sequence>
 			<xsd:element name="BoundaryExtension" type="xsd:anyURI" maxOccurs="unbounded"/>
